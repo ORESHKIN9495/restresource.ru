@@ -101,30 +101,31 @@ const showCook = ref(false);
     <div class="container">
       <div class="container__hero">
         <HeroNav />
-        <div class="container__finger">
+
+        <div class="container__grid">
           <h2>I feel it in my fingers</h2>
 
           <Card :filled="true" :grid="true" :quant="3" />
         </div>
       </div>
 
-      <div class="container__region">
+      <div class="container__row">
         <h2>Heart-y plates</h2>
 
         <Card :filled="false" :row="true" :quant="5" />
       </div>
 
-      <div class="container__region">
+      <div class="container__row">
         <Signature />
       </div>
 
-      <div class="container__finger">
+      <div class="container__grid">
         <h2>The bright shades of winter</h2>
 
         <Card :filled="true" :grid="true" :quant="3" />
       </div>
 
-      <div class="container__region">
+      <div class="container__row">
         <h2>Pretty in pink</h2>
 
         <Card :filled="false" :row="true" :quant="5" />
@@ -432,13 +433,13 @@ main {
     margin: auto;
     padding: 20px;
 
-    &__finger {
+    &__grid {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
 
-    &__region {
+    &__row {
       display: flex;
       flex-direction: column;
       gap: 20px;
