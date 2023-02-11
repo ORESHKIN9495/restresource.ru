@@ -1,0 +1,74 @@
+{
+  "Meat And Poultry": {
+    "product": ["Beef", "Chicken", "Duck", "Lamb", "Pork", "See more"]
+  },
+  "Fish and Seafood": {
+    "product": ["Cod", "Prawn", "Sea bass", "Hake", "Salmon", "See more"]
+  },
+  "Courses": {
+    "product": [
+      "Canapés",
+      "Starters",
+      "Mains",
+      "Sides",
+      "Desserts",
+      "Petits fours"
+    ]
+  },
+  "Dish Types": {
+    "product": ["Curry", "Soup", "Pasta", "Salad", "One-pot", "Stew"]
+  },
+  "Diets": {
+    "product": [
+      "Vegetarian",
+      "Vegan",
+      "Pescatarian",
+      "Gluten-free",
+      "Dairy-free",
+      "Low carb"
+    ]
+  },
+  "Cakes and Baking": {
+    "product": [
+      "Easy cake",
+      "Loaf cake",
+      "Layer cake",
+      "Tarts",
+      "Pâtisserie",
+      "See more"
+    ]
+  },
+  "Occasions": {
+    "product": [
+      "Dinner party",
+      "Breakfast",
+      "Party",
+      "Sunday roast",
+      "All-day brunch"
+    ]
+  },
+  "Cuisine": {
+    "product": ["Mexican", "Italian", "Indian", "Thai", "Chinese", "French"]
+  },
+  "Everyday and easy": {
+    "product": [
+      "Midweek meal",
+      "Easy pie",
+      "Easy chicken",
+      "Easy vegan",
+      "Easy curry",
+      "See all easy recipes"
+    ]
+  },
+
+  "Seasonal": {
+    "product": [
+      "Celeriac",
+      "Cauliflower",
+      "Kale",
+      "Rhubarb",
+      "Blood orange",
+      "Asparagus"
+    ]
+  }
+}

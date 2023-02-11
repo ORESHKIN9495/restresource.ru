@@ -1,0 +1,68 @@
+{
+  "Meat And Poultry": {
+    "product": ["Beef", "Chicken", "Duck", "Lamb", "Pork", "See more"]
+  },
+  "Fish and Seafood": {
+    "product": ["Cod", "Prawn", "Sea bass", "Hake", "Salmon", "See more"]
+  },
+  "Vegetables": {
+    "product": [
+      "Beetroot",
+      "Butternut squash",
+      "Red cabbage",
+      "Sweet potato",
+      "Tomato",
+      "See all"
+    ]
+  },
+  "Knife skills": {
+    "product": [
+      "Butchery",
+      "Fish preparation",
+      "Vegetable preparation",
+      "Chiffonade",
+      "Sharpen a knife",
+      "See all"
+    ]
+  },
+  "Cakes and Baking": {
+    "product": [
+      "Line a tart tin",
+      "Blind bake",
+      "Make macarons",
+      "Bake cakes",
+      "Make sweet pastry",
+      "Make biscuits"
+    ]
+  },
+  "Sous vide": {
+    "product": [
+      "Sous vide meat",
+      "Sous vide fish",
+      "Sous vide vegetables",
+      "Sous vide fruit",
+      "Tips and tricks",
+      "See all"
+    ]
+  },
+  "Pickling": {
+    "product": [
+      "Pickle asparagus",
+      "Pickle mackerel",
+      "Pickle gooseberries",
+      "Pickle cucumber",
+      "Pickle red cabbage",
+      "See all"
+    ]
+  },
+  "Chef tricks": {
+    "product": [
+      "Brining",
+      "Fish stock",
+      "Rib-eye steak",
+      "Chorizo crisps",
+      "Pomme purée",
+      "Crispy chicken skin"
+    ]
+  }
+}
