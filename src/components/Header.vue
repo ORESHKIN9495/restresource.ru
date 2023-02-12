@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import TheButton from "../components/TheButton.vue";
-import RecipeModal from "../components/RecipeModal.vue";
-import CookModal from "../components/CookModal.vue";
+import NavModal from "./NavModal.vue";
+
+import recipes from "../recipe.json";
+import cook from "../cook.json";
 
 import { ref } from "vue";
 
-const showRec = ref(false);
-const showCook = ref(false);
+const modal = ref(false);
+
+const prop = ref();
 </script>
 
 <template>
@@ -42,11 +45,10 @@ const showCook = ref(false);
       </nav>
 
       <nav>
-        <RecipeModal v-if="showRec" @close="showRec = !showRec" />
-        <CookModal v-if="showCook" @close="showCook = !showCook" />
+        <NavModal :props="prop" v-if="modal" @close="!modal" />
 
         <ul>
-          <li @click="showRec = !showRec && showCook == false">
+          <li @click="(modal = !modal), (prop = recipes)">
             Recipe
             <i class="icon-menu-down" />
           </li>
@@ -54,7 +56,7 @@ const showCook = ref(false);
           <router-link to="/" text="Chefs" tag="li" />
           <router-link to="/" text="Restaurants" />
 
-          <li @click="showCook = !showCook && showRec == false">
+          <li @click="(modal = !modal), (prop = cook)">
             How to Cook
             <i class="icon-menu-down" />
           </li>

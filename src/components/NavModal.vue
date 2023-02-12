@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { defineEmits } from "vue";
+import { defineEmits, defineProps } from "vue";
 
-import recipes from "../recipe.json";
+defineEmits(["close"]);
 
-const emit = defineEmits(["close"]);
+interface Change {
+  props: any;
+}
+
+defineProps<Change>();
 </script>
 
 <template>
@@ -11,7 +15,7 @@ const emit = defineEmits(["close"]);
     <i class="icon-close" @click="$emit('close')" />
 
     <div>
-      <ul v-for="(i, index) in recipes">
+      <ul v-for="(i, index) in props">
         <p>{{ index }}</p>
 
         <router-link to="/" custom v-slot="{ navigate }">
