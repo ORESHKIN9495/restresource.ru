@@ -2,7 +2,7 @@
 import TheButton from "../components/TheButton.vue";
 import NavModal from "./NavModal.vue";
 
-import recipes from "../recipe.json";
+import recipe from "../recipe.json";
 import cook from "../cook.json";
 
 import { ref } from "vue";
@@ -55,7 +55,7 @@ const quant = ref();
         />
 
         <ul>
-          <li @click="(modal = !modal), (prop = recipes), (quant = 5)">
+          <li @click="(modal = !modal), (prop = recipe), (quant = 5)">
             Recipe
             <i class="icon-menu-down" />
           </li>
