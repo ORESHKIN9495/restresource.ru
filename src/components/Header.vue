@@ -45,7 +45,7 @@ const prop = ref();
       </nav>
 
       <nav>
-        <NavModal :props="prop" v-if="modal" @close="!modal" />
+        <NavModal :props="prop" v-if="modal" @close="modal = !modal" />
 
         <ul>
           <li @click="(modal = !modal), (prop = recipes)">
