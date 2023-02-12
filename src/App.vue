@@ -116,4 +116,9 @@ hr {
   background: #efefef;
   padding: 1px;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+}
 </style>

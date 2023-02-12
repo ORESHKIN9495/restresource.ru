@@ -52,12 +52,6 @@ section {
     display: flex;
     flex: 1;
     gap: 20px;
-
-    div {
-      &:first-child {
-        grid-area: 1 / 1 / 3 / 3;
-      }
-    }
   }
 
   div {
