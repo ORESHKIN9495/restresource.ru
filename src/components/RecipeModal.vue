@@ -7,25 +7,28 @@ const emit = defineEmits(["close"]);
 </script>
 
 <template>
-  <Teleport to="body">
-    <div name="rec" class="modal">
-      <i class="icon-close" @click="$emit('close')" />
-      <div>
-        <ul v-for="(i, index) in recipes">
-          <p>{{ index }}</p>
-          <li v-for="v in i.product">{{ v }}</li>
-        </ul>
-      </div>
+  <section>
+    <i class="icon-close" @click="$emit('close')" />
+
+    <div>
+      <ul v-for="(i, index) in recipes">
+        <p>{{ index }}</p>
+
+        <router-link to="/" custom v-slot="{ navigate }">
+          <li v-for="v in i.product" @click="navigate">
+            {{ v }}
+          </li>
+        </router-link>
+      </ul>
     </div>
-  </Teleport>
+  </section>
 </template>
 
 <style scoped lang="scss">
-.modal {
+section {
   background: #e2e2e2;
   left: 0;
   position: fixed;
-  padding: 20px 0;
   padding-left: calc(29px + 12.2%);
   padding-right: calc(29px + 12.2%);
   top: 116px;
@@ -36,7 +39,6 @@ const emit = defineEmits(["close"]);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 40px;
-    position: relative;
     margin: 40px 0;
   }
 
@@ -52,7 +54,6 @@ const emit = defineEmits(["close"]);
 
     p {
       font-weight: 400;
-      color: #000;
       margin-bottom: 10px;
     }
 
@@ -63,11 +64,8 @@ const emit = defineEmits(["close"]);
         transform: translateX(10px);
 
         &::before {
-          vertical-align: middle;
           content: "—";
           position: absolute;
-          top: 0;
-          left: 0;
           margin: auto 0 auto -20px;
         }
       }

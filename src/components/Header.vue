@@ -46,20 +46,19 @@ const showCook = ref(false);
         <CookModal v-if="showCook" @close="showCook = !showCook" />
 
         <ul>
-          <router-link to="/" custom v-slot="{ navigate }">
-            <li @click="showRec = !showRec && showCook == false">
-              Recipe
-              <i class="icon-menu-down" :click="navigate" />
-            </li>
-          </router-link>
+          <li @click="showRec = !showRec && showCook == false">
+            Recipe
+            <i class="icon-menu-down" />
+          </li>
+
           <router-link to="/" text="Chefs" tag="li" />
           <router-link to="/" text="Restaurants" />
-          <router-link to="/" custom v-slot="{ navigate }">
-            <li @click="showCook = !showCook && showRec == false">
-              How to Cook
-              <i class="icon-menu-down" :click="navigate" />
-            </li>
-          </router-link>
+
+          <li @click="showCook = !showCook && showRec == false">
+            How to Cook
+            <i class="icon-menu-down" />
+          </li>
+
           <router-link to="/" text="Features" />
           <router-link to="/competitions" :text="'Competitions'" />
 
