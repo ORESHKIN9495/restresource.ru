@@ -4,7 +4,7 @@ import navigate from "../navigate.json";
 
 <template>
   <footer>
-    <div class="footer_container">
+    <section>
       <div>
         <p>© 2023</p>
 
@@ -16,14 +16,22 @@ import navigate from "../navigate.json";
       <div>
         NAVIGATE
         <ul v-for="i in navigate.Navigate">
-          <li>{{ i }}</li>
+          <router-link to="/" custom v-slot="{ navigate }">
+            <li :click="navigate">
+              {{ i }}
+            </li>
+          </router-link>
         </ul>
       </div>
 
       <div>
         INFORMATION
         <ul v-for="i in navigate.Information">
-          <li>{{ i }}</li>
+          <router-link to="/" custom v-slot="{ navigate }">
+            <li :click="navigate">
+              {{ i }}
+            </li>
+          </router-link>
         </ul>
       </div>
 
@@ -39,7 +47,7 @@ import navigate from "../navigate.json";
           <a href="/"></a>
         </span>
       </div>
-    </div>
+    </section>
   </footer>
 </template>
 
@@ -47,7 +55,7 @@ import navigate from "../navigate.json";
 footer {
   background: #3d3d3d;
 
-  .footer_container {
+  section {
     display: flex;
     gap: 20px;
     justify-content: space-between;

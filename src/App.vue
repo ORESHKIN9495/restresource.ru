@@ -73,7 +73,7 @@ import Footer from "./components/Footer.vue";
 }
 
 body {
-  background: #efefef;
+  background: #fff;
 }
 
 a {
@@ -115,9 +115,5 @@ hr {
   border: none;
   background: #efefef;
   padding: 1px;
-}
-
-main {
-  background: #fff;
 }
 </style>
