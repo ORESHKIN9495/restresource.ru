@@ -16,23 +16,21 @@ const showCook = ref(false);
     <picture nopin="nopin" class="recirc-image" data-v-7bf7b230=""
       ><source
         srcset="
-          https://media-cdn.greatbritishchefs.com/media/px5dew3a/gic_logo.svg
+          https://media-cdn.greatbritishchefs.com/media/kxtop14a/gbc_logo1.svg
         "
         type="image/svg+xml"
-        data-v-7bf7b230=""
-      />
+        data-v-7bf7b230="" />
       <img
-        src="https://media-cdn.greatbritishchefs.com/media/amsf5fw5/img50119.png"
+        src="https://media-cdn.greatbritishchefs.com/media/roufmtew/img50118.png"
         nopin="nopin"
         class="menu-logo"
         data-v-7bf7b230=""
-      />
-    </picture>
+    /></picture>
 
     <div class="navigate">
       <nav>
         <span
-          ><a href="/">KITCHEN</a> | <a href="/">GREAT BRITISH CHEFS</a></span
+          ><a href="/">KITCHEN</a> | <a href="/">GREAT ITALIAN CHEFS</a></span
         >
 
         <TheButton title="VISIT OUR SHOP" bkgr="#facd02" color="#000" />
