@@ -5,18 +5,27 @@ interface Button {
   title: String;
   bkgr?: String;
   color?: String;
+  transparent?: Boolean;
 }
 
 defineProps<Button>();
 </script>
 
 <template>
-  <button>{{ title }}</button>
+  <button :class="{ transparent: transparent }">{{ title }}</button>
 </template>
 
 <style scoped lang="scss">
 button {
   background: v-bind(bkgr);
+  border: none;
   color: v-bind(color);
+  outline: none;
+  padding: 13px 16px;
+
+  &.transparent {
+    border: 1px solid #fff;
+    background: none;
+  }
 }
 </style>
