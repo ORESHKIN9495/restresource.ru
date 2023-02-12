@@ -10,6 +10,8 @@ import { ref } from "vue";
 const modal = ref(false);
 
 const prop = ref();
+
+const quant = ref();
 </script>
 
 <template>
@@ -45,10 +47,15 @@ const prop = ref();
       </nav>
 
       <nav>
-        <NavModal :props="prop" v-if="modal" @close="modal = !modal" />
+        <NavModal
+          :quant="quant"
+          :props="prop"
+          v-if="modal"
+          @close="modal = !modal"
+        />
 
         <ul>
-          <li @click="(modal = !modal), (prop = recipes)">
+          <li @click="(modal = !modal), (prop = recipes), (quant = 5)">
             Recipe
             <i class="icon-menu-down" />
           </li>
@@ -56,7 +63,7 @@ const prop = ref();
           <router-link to="/" text="Chefs" tag="li" />
           <router-link to="/" text="Restaurants" />
 
-          <li @click="(modal = !modal), (prop = cook)">
+          <li @click="(modal = !modal), (prop = cook), (quant = 4)">
             How to Cook
             <i class="icon-menu-down" />
           </li>

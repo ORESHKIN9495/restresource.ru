@@ -5,6 +5,7 @@ defineEmits(["close"]);
 
 interface Change {
   props: any;
+  quant: Number;
 }
 
 defineProps<Change>();
@@ -41,7 +42,7 @@ section {
 
   div {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(v-bind(quant), 1fr);
     gap: 40px;
     margin: 40px 0;
   }
