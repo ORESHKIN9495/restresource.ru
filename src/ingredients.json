@@ -1,0 +1,128 @@
+[
+  {
+    "id": "1",
+    "slug": "love-heart-macarons-recipe",
+    "components": [
+      {
+        "title": "Ground almond base",
+        "components": [
+          {
+            "weight": "300g",
+            "title": "ground almonds",
+            "uri": "https://www.greatbritishchefs.com/collections/almond-recipes"
+          },
+          {
+            "weight": "300g",
+            "title": "icing sugar",
+            "uri": ""
+          },
+          {
+            "weight": "110g",
+            "title": "egg white",
+            "uri": "https://www.greatbritishchefs.com/collections/egg-recipes"
+          }
+        ]
+      },
+      {
+        "title": "Italian meringue",
+        "components": [
+          {
+            "weight": "110g",
+            "title": "egg white",
+            "uri": "https://www.greatbritishchefs.com/collections/egg-recipes"
+          },
+          {
+            "weight": "300g",
+            "title": "caster sugar",
+            "uri": ""
+          },
+          {
+            "weight": "55g",
+            "title": "water",
+            "uri": ""
+          },
+          {
+            "weight": "2g",
+            "title": "white food colouring",
+            "uri": ""
+          },
+          {
+            "weight": "0.5g",
+            "title": "red food colouring",
+            "uri": ""
+          },
+          {
+            "weight": "0.5g",
+            "title": "purple food colouring",
+            "uri": ""
+          },
+          {
+            "weight": "0.5g",
+            "title": "yellow food colouring",
+            "uri": ""
+          },
+          {
+            "weight": "0.5g",
+            "title": "green food colouring",
+            "uri": ""
+          }
+        ]
+      },
+      {
+        "title": "Love heart butter cream",
+        "components": [
+          {
+            "weight": "216g",
+            "title": "Love Heart sweets, blended to a powder",
+            "uri": ""
+          },
+          {
+            "weight": "110g",
+            "title": "egg white",
+            "uri": "https://www.greatbritishchefs.com/collections/egg-recipes"
+          },
+          {
+            "weight": "180g",
+            "title": "caster sugar",
+            "uri": ""
+          },
+          {
+            "weight": "60g",
+            "title": "water",
+            "uri": ""
+          },
+          {
+            "weight": "200g",
+            "title": "unsalted butter, softened",
+            "uri": "https://www.greatbritishchefs.com/collections/butter-recipes"
+          }
+        ]
+      },
+      {
+        "title": "Pink royal icing for piping",
+        "components": [
+          {
+            "weight": "220g",
+            "title": "icing sugar",
+            "uri": ""
+          },
+          {
+            "weight": "30g",
+            "title": "egg white",
+            "uri": "https://www.greatbritishchefs.com/collections/egg-recipes"
+          },
+          {
+            "weight": "1tsp",
+            "title": "lemon juice",
+            "uri": "https://www.greatbritishchefs.com/collections/lemon-recipes"
+          },
+          {
+            "weight": "0.5g",
+            "title": "red food colouring",
+            "uri": ""
+          }
+        ]
+      }
+    ]
+  }
+]

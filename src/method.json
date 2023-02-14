@@ -1,0 +1,80 @@
+[
+  {
+    "id": "1",
+    "slug": "love-heart-macarons-recipe",
+    "steps": [
+      {
+        "description": "To begin the macarons, make the ground almond base. Add all of the ingredients to the bowl of a food mixer and whisk until incorporated. Set aside until required",
+        "components": [
+          {
+            "weight": "300g",
+            "title": "ground almonds",
+            "uri": "https://www.greatbritishchefs.com/collections/almond-recipes"
+          },
+          {
+            "weight": "300g",
+            "title": "icing sugar",
+            "uri": ""
+          },
+          {
+            "weight": "110g",
+            "title": "egg white",
+            "uri": "https://www.greatbritishchefs.com/collections/egg-recipes"
+          }
+        ]
+      },
+      {
+        "description": "To make the Italian meringue base, add the egg whites to a clean bowl and whisk on a low speed. Meanwhile, add the water and 280g of caster sugar to a pan and place over a medium-high heat. Cook until the syrup reaches ‘soft ball’ stage, or 118°C",
+        "components": []
+      },
+      {
+        "description": "Once the temperature reaches 105°C, increase the speed of the mixer and add the remaining 20g of caster sugar in order to stabilise the meringue. When the sugar reaches 118°C, reduce the speed of the mixer and gently pour the sugar down the side of the bowl into the whisking egg whites",
+        "components": []
+      },
+      {
+        "description": "Turn up the speed and mix for 1 more minute, before stopping the machine and adding your choice of food colouring. It's important to stick to the prescribed colour quantities listed with these as too much liquid may upset the delicate balance of the meringue, causing less-than-perfect macarons. Turn on the machine once more, mixing on a medium speed until the meringue has cooled to blood temperature and has a thick, fluffy consistency",
+        "components": []
+      },
+      {
+        "description": "When ready, mix 1/3 of the Italian meringue base into the reserved ground almond base, stirring to combine. Repeat this process twice more until all of the mix is incorporated, smooth and shiny",
+        "components": []
+      },
+      {
+        "description": "Add the macaron mix to a piping bag fitted with a 1cm nozzle, and pipe 4.5cm bulbs of the meringue directly onto either a non-stick baking mat, or a baking tray lined with silicone paper",
+        "components": []
+      },
+      {
+        "description": "Set the macarons to one side for 30-60 minutes until they form a dry skin on top. Meanwhile, preheat the oven to 130°C/gas mark 1",
+        "components": []
+      },
+      {
+        "description": "While the macarons are resting, make the butter cream. Place the egg whites in a food mixer with a whisk attachment and mix on a moderate speed. Meanwhile, place the caster sugar and water into a pan and heat until the temperature reaches 118°C",
+        "components": []
+      },
+      {
+        "description": "Gently pour the hot sugar down the side of the mixing bowl into the egg whites while the mixer is still running. Increase the speed and whisk until the meringue cools to blood temperature",
+        "components": []
+      },
+      {
+        "description": "Gradually mix in the softened butter and whisk until smooth and fluffy. Add the blended love heart sweets and relevant food colouring for a brighter colour. Whisk again to combine before transferring to a piping bag with a 1/2cm nozzle",
+        "components": []
+      },
+      {
+        "description": "When ready, bake the macarons for 17-18 minutes, until you can just peel them away from the tray. Remove from the oven, allow to cool then match each macaron half according to size",
+        "components": []
+      },
+      {
+        "description": "While the macarons are cooling, make the royal icing. Sieve the icing sugar into a bowl and whisk the egg whites in a separate bowl until just frothy",
+        "components": []
+      },
+      {
+        "description": "Add the icing sugar to the egg whites one tablespoon at a time, folding into the egg whites with each addition. Add the lemon juice and continue to beat the icing until it stiffens, adding food colouring until the desired colour is reached. Beat again until the icing stands up to form stiff peaks",
+        "components": []
+      },
+      {
+        "description": "Transfer the icing to a paper cornet (or piping bag fitted with a very fine nozzle) and decorate each macaron lid with a love heart and your desired message. Fill each macaron base with a bulb of love heart butter cream and top with the decorated macaron lid",
+        "components": []
+      }
+    ]
+  }
+]
