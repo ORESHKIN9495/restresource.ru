@@ -12,7 +12,9 @@ import Card from "../components/Card.vue";
     </div>
 
     <div class="grid">
+      <span></span>
       <Card :quant="3" />
+      <span></span>
     </div>
 
     <div>
@@ -67,9 +69,20 @@ import Card from "../components/Card.vue";
 
     &:nth-child(3) {
       background: none;
+      flex-direction: row;
       max-width: 1360px;
       margin: 0 auto;
       padding: 0;
+      align-items: flex-start;
+
+      span {
+        display: block;
+        padding: 300px 150px;
+
+        &:last-child {
+          background: #ccc;
+        }
+      }
     }
 
     h2 {
