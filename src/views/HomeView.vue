@@ -45,7 +45,7 @@ import Signature from "../components/Signature.vue";
     <div class="container__row">
       <h2>Heart-y plates</h2>
 
-      <Card :filled="false" :row="true" :quant="5" />
+      <Card :filled="false" :quant="5" />
     </div>
 
     <div class="container__row">
@@ -61,16 +61,16 @@ import Signature from "../components/Signature.vue";
     <div class="container__row">
       <h2>Pretty in pink</h2>
 
-      <Card :filled="false" :row="true" :quant="5" />
+      <Card :filled="false" :quant="5" />
     </div>
 
     <div class="latest">
       <h2>Latest from Great British Chefs</h2>
 
       <div class="latest__grid">
-        <Card :filled="false" :row="true" :quant="3" />
-        <Card :filled="false" :row="true" :quant="2" />
-        <Card :filled="false" :row="true" :quant="3" />
+        <Card :filled="false" :quant="3" />
+        <Card :filled="false" :quant="2" />
+        <Card :filled="false" :quant="3" />
       </div>
     </div>
   </div>

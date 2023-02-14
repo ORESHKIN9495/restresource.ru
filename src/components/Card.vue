@@ -6,7 +6,6 @@ import cards from "../cards.json";
 interface Recipe {
   filled?: Boolean;
   grid?: Boolean;
-  row?: Boolean;
   quant?: any;
 }
 
@@ -14,7 +13,7 @@ defineProps<Recipe>();
 </script>
 
 <template>
-  <section :class="{ grid: grid, row: row }">
+  <section :class="{ grid: grid }">
     <div v-for="(card, index) in cards.cards.slice(0, quant)">
       <picture>
         <img :srcset="card.image" alt="a duck is swimming in a pond with ice" />
@@ -36,6 +35,9 @@ defineProps<Recipe>();
 
 <style scoped lang="scss">
 section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   &.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -46,12 +48,6 @@ section {
         grid-area: 1 / 1 / 3 / 3;
       }
     }
-  }
-
-  &.row {
-    display: flex;
-    flex: 1;
-    gap: 20px;
   }
 
   div {

@@ -21,7 +21,7 @@ button {
   border: none;
   color: v-bind(color);
   outline: none;
-  padding: 13px 16px;
+  padding: 10px 16px;
 
   &.transparent {
     border: 1px solid #fff;

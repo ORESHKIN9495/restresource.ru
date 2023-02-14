@@ -12,7 +12,7 @@ import Card from "../components/Card.vue";
     </div>
 
     <div class="grid">
-      <Card :row="true" :quant="3" />
+      <Card :quant="3" />
     </div>
 
     <div>
@@ -89,7 +89,7 @@ import Card from "../components/Card.vue";
       border: 1px solid #fff;
       cursor: pointer;
       outline: none;
-      padding: 5px 80px;
+      padding: 10px 40px;
       text-transform: uppercase;
       max-width: 300px;
     }
