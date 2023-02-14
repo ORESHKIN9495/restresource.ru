@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Love Heart macarons",
+    "description": "This beautiful love heart macaron recipe was created by Hakkasan executive pastry chef Graham Hornigold in collaboration with chef Sarah Frankland, head of Pastry at Yauatcha. The wonderful pastel shade shells are created using food colouring. You can only make one colour at a time, so whip up separate batches for a larger variety of colours. Crushed Love Heart sweets will add a subtle colour to the buttercream filling, but feel free to add a few drops of colour to correspond to your chosen shade of shell if you're after a more eye-popping shade.",
+    "author": "Graham Hornigold",
+    "uri": "https://www.greatbritishchefs.com/chefs/graham-hornigold",
+    "category": "recipe",
+    "collections": {
+      "title": "Main",
+      "uri": "https://www.greatbritishchefs.com/collections/main-course-recipes"
+    },
+    "slug": "love-heart-macarons-recipe",
+    "views": "30",
+    "time": "2 hours 15 minutes",
+    "created_in": "1676380535",
+    "difficulty": {
+      "title": "easy",
+      "uri": "https://www.greatbritishchefs.com/collections/easy-recipes"
+    }
+  }
+]

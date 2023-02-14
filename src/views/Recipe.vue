@@ -19,7 +19,7 @@ const change = ref(true);
         class="recipe-summary__recipe-images"
         data-v-6657d234=""
         data-v-4722e620=""
-        ><!--[-->
+      >
         <source
           srcset="
             https://media-cdn.greatbritishchefs.com/media/iqfk1rhy/img22457.whqc_320x231q90.webp 1x,
