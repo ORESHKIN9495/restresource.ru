@@ -50,8 +50,8 @@ import Card from "../components/Card.vue";
 
 <style scoped lang="scss">
 .competitions {
-  width: 100%;
   margin: 150px auto;
+  width: 100%;
 
   h1 {
     font-size: 30px;
@@ -68,12 +68,12 @@ import Card from "../components/Card.vue";
     padding: 100px;
 
     &:nth-child(3) {
+      align-items: flex-start;
       background: none;
       flex-direction: row;
       max-width: 1360px;
       margin: 0 auto;
       padding: 0;
-      align-items: flex-start;
 
       span {
         display: block;
@@ -103,8 +103,8 @@ import Card from "../components/Card.vue";
       cursor: pointer;
       outline: none;
       padding: 10px 40px;
-      text-transform: uppercase;
       max-width: 300px;
+      text-transform: uppercase;
     }
   }
 }
