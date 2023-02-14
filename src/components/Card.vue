@@ -13,7 +13,7 @@ defineProps<Recipe>();
 </script>
 
 <template>
-  <section :class="{ grid: grid }">
+  <section class="card" :class="{ grid: grid }">
     <div v-for="(card, index) in cards.cards.slice(0, quant)">
       <picture>
         <img :srcset="card.image" alt="a duck is swimming in a pond with ice" />
@@ -34,7 +34,7 @@ defineProps<Recipe>();
 </template>
 
 <style scoped lang="scss">
-section {
+.card {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;

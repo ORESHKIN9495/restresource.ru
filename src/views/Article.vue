@@ -1,0 +1,229 @@
+<script setup lang="ts">
+import Card from "../components/Card.vue";
+</script>
+
+<template>
+  <section class="article">
+    <h1>Ramael Scully</h1>
+
+    <picture></picture>
+
+    <h2>Ramael Scully</h2>
+
+    <div class="first_child">
+      <p>
+        Ramael Scully's vibrant dishes reflect his Malaysian roots, Australian
+        upbringing and European training. After moving to London from Sydney in
+        2005, he struck up a culinary bond with Yotam Ottolenghi, shaping the
+        brand's menus and heading up fine dining restaurant NOPI. In 2018, he
+        opened his debut venture Scully St James's as a celebration of his
+        colourful cooking.
+      </p>
+    </div>
+
+    <div class="last_child">
+      <article>
+        <span>
+          <h3>Social Media</h3>
+
+          <p>Instagram: scully_chef</p>
+
+          <p>See all Ramael's recipes</p>
+        </span>
+
+        <p>
+          While most chefs take inspiration from their heritage, there are
+          probably few whose influences are as diverse as those of chef Ramael
+          Scully. Born in Kuala Lumpur, Malaysia, and brought up in Sydney, with
+          a mother of Chinese and Indian descent and an Irish Balinese father,
+          he has, in his own words, a ‘truly eclectic palette’. ‘I have been
+          lucky,’ he smiles. ‘Mum had lived in the UK so when I was growing up
+          she would cook Western-style food as well as Malay, and my aunties
+          would cook Indian and Chinese.’ The family relocated to Sydney when
+          Scully, as he is best-known, was a child, exposing him to the
+          country’s vibrant culinary cultures. Though he always loved food, it
+          wasn’t until his teenage years that he really started cooking (the
+          original career plan was, he says, marine biology), preparing dinner
+          for his sister while his mum, a nurse, was working, picking up kitchen
+          porter shifts at an Italian restaurant and, at seventeen, starting
+          catering college. ‘I started thinking ‘I could really do this’,’ he
+          says. ‘I wanted to see the world and thought maybe it was the best way
+          to do it.’<br /><br />
+          Scully says he owes a lot to Australia’s four-year apprenticeship
+          system. By the time he was twnty-one, he was already firmly embedded
+          in the industry; roles cooking aboard showboats in Sydney, at a casino
+          restaurant, another at Fox Studios, a French-Asian fusion spot (where
+          he turned his hand to baking and pastry) and the beachside Bathers
+          Pavilion had exposed him to different team cultures, cuisines and
+          dining styles. There were, he says, plenty of lessons learned along
+          the way, some general (time management and the competitive nature of
+          professional kitchens), and others more specific (the importance
+          writing down recipe notes carefully and responding to head chefs
+          quickly). ‘I was potty trained young,’ he laughs, ‘and was mature by
+          the time I turned 21.’ With the foundations built, it was in his
+          mid-twenties that Scully first started exploring the ingredients which
+          would become pillars of his cooking style. ‘I had worked in the game
+          for six years, but had never really worked with Asian flavours,’ he
+          says. ‘I started thinking ‘if I did this with mum’s cooking that would
+          really work’ or ‘if you used tamarind instead of this ingredient, it
+          would be great’.’<br /><br />
+          In 2005, Scully packed his bags and moved to London, spending the
+          first year finding his feet (and learning, he laughs, to never arrive
+          in the capital ‘with empty pockets’) until he landed at job at
+          Ottolenghi Upper Street. At the time, the Yotam Ottolenghi empire was
+          in its early years, and Scully had little idea of how influential its
+          growth would be on his career. A few days into the job, he had the
+          opportunity to impress his new boss, serving him portobello mushrooms
+          braised in white wine, and what Yotam has since described as the
+          ‘crispiest pork belly to ever enter my mouth’, with a plum, rhubarb,
+          chilli, ginger and star anise compote. Scully had made a good
+          impression. Over the coming months, his style and beloved Asian
+          flavours were increasingly blended with Ottolenghi's Middle Eastern
+          taste, and it wasn’t long before the chef had become a crucial part of
+          the business. Yotam, writing in The Guardian, once said: ‘In short,
+          Scully showed us how to do ‘restaurant’, we taught him how to do
+          ‘Ottolenghi’, and the result is this hybrid set of dishes that are now
+          ‘Ottolenghi haute cuisine’.
+        </p>
+
+        <span></span>
+      </article>
+
+      <Card :quant="2" />
+
+      <article>
+        <span></span>
+
+        <p>
+          Things were, it's fair to say, going smoothly for Scully, until a visa
+          blunder saw him banned from the UK for two years and suddenly in need
+          of a job. Biding his time until he could return, he took on a
+          consultant chef position across six restaurants and three canteens in
+          Russia's capital Moscow, before heading back to Australia to work with
+          chefs including Peter Gilmore and Matthew Kemp. Back in London,
+          meanwhile, Yotam was preparing to launch NOPI in Soho as the fine
+          dining answer to Ottolenghi's café-style fare, and Scully says when
+          the call came asking if he would head it up, it was an easy answer. In
+          2011, with a green light to enter the country, Scully landed back in
+          London, detecting a shift in the city. ‘I noticed a change in London
+          then,’ he says. ‘You could get ingredients like curry leaves more
+          easily, and more Asian products were coming into stores. In around
+          2010 and 2011, London had started changing. Up to that point I always
+          felt that somewhere like New York would start a trend and the rest
+          would follow, but by that point London was starting trends.’<br /><br />
+          As head chef, Scully's blend of traditional training and creative
+          flair created vibrant menus, earning the restaurant a glowing
+          reputation and its cookbook (NOPI: The Cookbook) a James Beard award
+          for Best International Cookbook. It was in 2016, while promoting the
+          cookbook in America, that conversations around Scully spreading his
+          wings and going it alone first began. Two years later, the chef bid a
+          fond farewell to the Ottolenghi kitchen and took the helm at Scully St
+          James's, his debut solo venture and a celebration of his diverse roots
+          and informal yet refined style. Keen to both dramatically reduce food
+          waste and make vegetables sing, fermentation, dehydration and pickling
+          take centre-stage – jars of preserved lemons, dehydrated carrots and
+          pickled cherries line the walls, while a room downstairs has
+          effectively become a fermentation room, a focus inspired partly by his
+          travels. ‘In Russia, before the winter comes the mothers will go to
+          the market, buy vegetables and pickle or ferment them,’ he says, ‘to
+          feed the family during winter.’<br /><br />
+          It's clear that, after cooking around the world since he was a
+          teenager, Scully has settled into his culinary niche, and is decided
+          on what he wants his cooking to achieve. 'I want to strip everything
+          back,' he says. 'I want to do simpler, but yummy dishes. A lot of
+          Michelin-starred chefs hate the word yummy, but what's wrong with it?
+          It's good, delicious food. To me, opening my first restaurant at 37
+          was perfect. If I had opened it at thirty, I would have failed. After
+          twenty-five years of cooking, two cookbooks, a James Beard award and
+          working with – and still meeting – really great people in my career,
+          I'm happy.'
+        </p>
+
+        <span></span>
+      </article>
+
+      <p>You may also like</p>
+    </div>
+  </section>
+</template>
+
+<style scoped lang="scss">
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 150px 0;
+
+  h1,
+  h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  picture {
+    background: #ccc;
+    padding: 200px;
+  }
+}
+
+.last_child {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin: 20px auto;
+  max-width: 1360px;
+
+  article {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 40px;
+
+    span {
+      display: block;
+      padding: 300px 150px;
+
+      &:last-child {
+        background: #ccc;
+      }
+
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+
+        h3 {
+          border-top: 1px solid #ccc;
+          color: #545454;
+          padding: 20px 0 0;
+        }
+
+        p {
+          color: rgb(114, 114, 114);
+
+          &:last-child {
+            border-top: 1px solid #ccc;
+            color: #727272;
+            font-weight: 400;
+            padding: 20px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.first_child {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+
+  p {
+    color: #545454;
+    font-style: italic;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+}
+</style>

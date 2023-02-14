@@ -117,6 +117,15 @@ hr {
   padding: 1px;
 }
 
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
 main {
   display: flex;
   flex-direction: column;
