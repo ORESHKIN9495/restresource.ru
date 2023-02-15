@@ -73,6 +73,7 @@ section {
       border: 1px solid #ccc;
       background: #fff;
       color: #ccc;
+      cursor: pointer;
       font-weight: 400;
       padding: 20px;
     }
