@@ -37,10 +37,11 @@ section {
   border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
+  flex: 100%;
   gap: 40px;
-  text-align: left;
+  height: 100%;
   padding: 20px;
-  color: #ccc;
+  text-align: left;
 
   div {
     display: flex;

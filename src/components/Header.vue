@@ -60,7 +60,7 @@ const quant = ref();
             <i class="icon-menu-down" />
           </li>
 
-          <router-link to="/" text="Chefs" tag="li" />
+          <router-link to="/" text="Chefs" />
 
           <li @click="(modal = !modal), (prop = cook), (quant = 4)">
             How to Cook

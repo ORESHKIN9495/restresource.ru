@@ -3,6 +3,7 @@ import { ref } from "vue";
 import Card from "../components/Card.vue";
 import Ingredients from "../components/Ingredients.vue";
 import RecipeMethod from "../components/RecipeMethod.vue";
+import ChefCard from "../components/ChefCard.vue";
 
 import base from "../base.json";
 
@@ -82,7 +83,7 @@ base.forEach((el) => {
     <div>
       <Ingredients />
       <RecipeMethod />
-      <div></div>
+      <ChefCard />
     </div>
   </section>
 </template>
@@ -154,15 +155,8 @@ base.forEach((el) => {
     }
 
     &:nth-child(4) {
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      display: flex;
       gap: 20px;
-
-      div {
-        &:last-child {
-          border: none;
-        }
-      }
     }
   }
 }
