@@ -22,6 +22,7 @@ onMounted(() => {
   <section class="recipe" v-for="item in data">
     <div>
       <h1>{{ item.title }}</h1>
+
       <p>
         by <router-link to="#">{{ item.author }}</router-link>
       </p>
@@ -96,10 +97,10 @@ onMounted(() => {
   margin: 150px 0;
 
   div {
-    text-align: center;
-    width: 100%;
     margin: 0 auto;
     max-width: 1360px;
+    text-align: center;
+    width: 100%;
 
     h1 {
       font-size: 30px;
@@ -132,8 +133,7 @@ onMounted(() => {
     }
 
     &:nth-child(3) {
-      display: flex;
-      flex-direction: column;
+      display: grid;
       background: #f9f9f9;
       border-bottom: 1px solid #ccc;
       border-top: 1px solid #ccc;
@@ -141,13 +141,12 @@ onMounted(() => {
       max-width: 100%;
       padding: 40px 0;
       position: relative;
-      align-items: center;
+      justify-items: center;
 
       span {
         display: block;
         max-width: 1360px;
         margin: 0 auto;
-        padding: 20px;
         width: 100%;
       }
 
