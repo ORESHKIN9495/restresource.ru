@@ -14,18 +14,18 @@ import navigate from "../navigate.json";
       </div>
 
       <div>
-        NAVIGATE
+        <h3>NAVIGATE</h3>
+
         <ul v-for="i in navigate.Navigate">
           <router-link to="/" custom v-slot="{ navigate }">
-            <li :click="navigate">
-              {{ i }}
-            </li>
+            <li :click="navigate">{{ i }}</li>
           </router-link>
         </ul>
       </div>
 
       <div>
-        INFORMATION
+        <h3>INFORMATION</h3>
+
         <ul v-for="i in navigate.Information">
           <router-link to="/" custom v-slot="{ navigate }">
             <li :click="navigate">
@@ -36,10 +36,9 @@ import navigate from "../navigate.json";
       </div>
 
       <div>
-        Follow
+        <h3>Follow</h3>
 
         <span>
-          <a href="/"></a>
           <a href="/"></a>
           <a href="/"></a>
           <a href="/"></a>
@@ -56,17 +55,21 @@ footer {
   background: #3d3d3d;
 
   section {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    justify-content: space-between;
     max-width: 1360px;
     margin: auto;
-    padding: 20px;
 
     div {
-      display: flex;
-      flex-direction: column;
+      align-content: baseline;
+      display: grid;
       gap: 20px;
+      padding: 20px;
+
+      h3 {
+        color: #fff;
+      }
 
       p {
         color: #595959;
@@ -93,12 +96,59 @@ footer {
     &:last-child {
       span {
         display: flex;
+        flex-wrap: wrap;
         gap: 20px;
 
         a {
           background: #595959;
           border-radius: 50px;
-          padding: 20px;
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  footer {
+    section {
+      grid-template-columns: 1fr;
+
+      div {
+        padding: 0;
+
+        h3 {
+          display: none;
+        }
+
+        &:first-child {
+          order: 4;
+        }
+
+        &:nth-child(2) {
+          background: #fff;
+          gap: 0;
+          text-align: center;
+
+          ul {
+            border-top: 1px solid #ccc;
+            padding: 20px;
+
+            li {
+              color: #000;
+              font-weight: 400;
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        &:last-child {
+          justify-content: center;
         }
       }
     }
