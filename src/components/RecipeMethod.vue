@@ -1,12 +1,22 @@
 <script setup lang="ts">
-import method from "../method.json";
+import { computed, onMounted, ref } from "vue";
+
+import { useMethoData } from "../store/modules/method";
+
+const store = useMethoData();
+
+const bases = computed(() => store.propData);
+
+onMounted(() => {
+  store.getData();
+});
 </script>
 
 <template>
   <section class="method">
     <h2>Method</h2>
 
-    <div v-for="items in method">
+    <div v-for="items in bases">
       <div class="row" v-for="(item, index) in items.steps">
         <span>{{ index }}</span>
 

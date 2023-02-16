@@ -1,6 +1,17 @@
 <script setup lang="ts">
-import ingredients from "../ingredients.json";
-import equipment from "../equipment.json";
+import { computed, onMounted, ref } from "vue";
+
+import { useIngredientsData } from "../store/modules/ingredients";
+
+const store = useIngredientsData();
+
+const ingredients = computed(() => store.ingData);
+const equipments = computed(() => store.equipData);
+
+onMounted(() => {
+  store.getIngredient();
+  store.getEquipments();
+});
 </script>
 
 <template>
@@ -22,7 +33,7 @@ import equipment from "../equipment.json";
       <button>SHOPPING LIST</button>
     </div>
 
-    <div class="equip" v-for="item in equipment">
+    <div class="equip" v-for="item in equipments">
       <h2>Equipment</h2>
 
       <ul>

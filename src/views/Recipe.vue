@@ -1,27 +1,29 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import Card from "../components/Card.vue";
 import Ingredients from "../components/Ingredients.vue";
 import RecipeMethod from "../components/RecipeMethod.vue";
 import ChefCard from "../components/ChefCard.vue";
 
-import base from "../base.json";
+import { useDataStore } from "../store/modules/base";
+
+const store = useDataStore();
+
+const bases = computed(() => store.propData);
 
 const change = ref(true);
 
-const bases = ref();
-
-base.forEach((el) => {
-  bases.value = el;
+onMounted(() => {
+  store.getData();
 });
 </script>
 
 <template>
-  <section class="recipe">
+  <section class="recipe" v-for="item in bases">
     <div>
-      <h1>{{ bases.title }}</h1>
+      <h1>{{ item.title }}</h1>
       <p>
-        by <router-link to="#">{{ bases.author }}</router-link>
+        by <router-link to="#">{{ item.author }}</router-link>
       </p>
     </div>
 
@@ -38,14 +40,12 @@ base.forEach((el) => {
         <span>
           <p>Petit four</p>
           <p>challenging</p>
-          <p>{{ bases.views }}</p>
+          <p>{{ item.views }}</p>
         </span>
 
-        <p>{{ bases.time }}</p>
+        <p>{{ item.time }}</p>
 
-        <p>
-          {{ bases.description }}
-        </p>
+        <p>{{ item.description }}</p>
 
         <p>First published in 2015</p>
       </article>
