@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 
-import { useMethoData } from "../store/modules/method";
+import { useStore } from "vuex";
 
-const store = useMethoData();
+const store = useStore();
 
-const bases = computed(() => store.propData);
+const data = computed(() => store.getters["method/data"]);
 
 onMounted(() => {
-  store.getData();
+  store.dispatch("method/getData");
 });
 </script>
 
@@ -16,7 +16,7 @@ onMounted(() => {
   <section class="method">
     <h2>Method</h2>
 
-    <div v-for="items in bases">
+    <div v-for="items in data">
       <div class="row" v-for="(item, index) in items.steps">
         <span>{{ index }}</span>
 

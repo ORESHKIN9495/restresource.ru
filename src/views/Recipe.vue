@@ -5,21 +5,21 @@ import Ingredients from "../components/Ingredients.vue";
 import RecipeMethod from "../components/RecipeMethod.vue";
 import ChefCard from "../components/ChefCard.vue";
 
-import { useDataStore } from "../store/modules/base";
+import { useStore } from "vuex";
 
-const store = useDataStore();
+const store = useStore();
 
-const bases = computed(() => store.propData);
+const data = computed(() => store.getters["base/data"]);
 
 const change = ref(true);
 
 onMounted(() => {
-  store.getData();
+  store.dispatch("base/getData");
 });
 </script>
 
 <template>
-  <section class="recipe" v-for="item in bases">
+  <section class="recipe" v-for="item in data">
     <div>
       <h1>{{ item.title }}</h1>
       <p>

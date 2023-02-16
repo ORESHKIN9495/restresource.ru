@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted } from "vue";
 
-import { useIngredientsData } from "../store/modules/ingredients";
+import { useStore } from "vuex";
 
-const store = useIngredientsData();
+const store = useStore();
 
-const ingredients = computed(() => store.ingData);
-const equipments = computed(() => store.equipData);
+const data = computed(() => store.getters["ingredients/data"]);
 
 onMounted(() => {
-  store.getIngredient();
-  store.getEquipments();
+  store.dispatch("ingredients/ingredData");
+  store.dispatch("ingredients/equipdData");
 });
 </script>
 
@@ -18,7 +17,7 @@ onMounted(() => {
   <section>
     <h2>Ingredients</h2>
 
-    <div v-for="items in ingredients">
+    <div v-for="items in data">
       <ul v-for="i in items.components">
         {{
           i.title
@@ -33,7 +32,7 @@ onMounted(() => {
       <button>SHOPPING LIST</button>
     </div>
 
-    <div class="equip" v-for="item in equipments">
+    <div class="equip" v-for="item in data">
       <h2>Equipment</h2>
 
       <ul>
