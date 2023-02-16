@@ -2,24 +2,13 @@
 
 <template>
   <section>
-    <picture>
-      <source
-        srcset="
-          https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_145x70q90fpt215fpl500.webp  1x,
-          https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_290x140q90fpt215fpl500.webp 2x
-        "
-        media="(max-width:767.98px)"
-        type="image/webp"
-        data-v-4722e620="" />
+    <img
+      src="https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_360x175q90fpt215fpl500.jpg"
+    />
 
-      <img
-        data-v-4722e620=""
-        class="w-100 h-100 basic-image"
-        src="https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_360x175q90fpt215fpl500.jpg"
-        fetchpriority="auto"
-    /></picture>
-
-    <router-link to="#">Graham Hornigold</router-link>
+    <span>
+      <router-link to="#">Graham Hornigold</router-link>
+    </span>
 
     <p>
       Graham Hornigold’s expert pastry skills have been refined in some of the
@@ -38,10 +27,9 @@ section {
   flex: 100%;
   height: 100%;
 
-  a {
+  span {
     border-bottom: 1px solid #ccc;
     display: block;
-    font-size: 20px;
     padding: 20px;
   }
 
