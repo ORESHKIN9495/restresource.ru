@@ -130,4 +130,8 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+img {
+  width: 100%;
+}
 </style>

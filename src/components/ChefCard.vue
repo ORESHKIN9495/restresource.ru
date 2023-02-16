@@ -35,7 +35,6 @@
 <style scoped lang="scss">
 section {
   border: 1px solid #ccc;
-  height: 520px;
   flex: 100%;
   height: 100%;
 

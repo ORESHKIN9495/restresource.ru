@@ -13,27 +13,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="method">
+  <section class="method" v-for="items in data">
     <h2>Method</h2>
 
-    <div v-for="items in data">
-      <div class="row" v-for="(item, index) in items.steps">
-        <span>{{ index }}</span>
+    <div v-for="(item, index) in items.steps">
+      <span>{{ index }}</span>
 
-        <div class="column">
-          <p>{{ item.description }}</p>
+      <p>{{ item.description }}</p>
 
-          <ul>
-            <li v-for="i in item.components">{{ i.weight }} {{ i.title }}</li>
-          </ul>
-        </div>
-      </div>
+      <ul>
+        <li v-for="i in item.components">{{ i.weight }} {{ i.title }}</li>
+      </ul>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .method {
+  display: grid;
+  gap: 20px;
   text-align: left;
 
   h2 {
@@ -44,34 +42,22 @@ onMounted(() => {
   }
 
   div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 20px 1fr;
     gap: 20px;
-    justify-content: center;
+  }
+
+  span {
+    color: #47af9d;
+    font-size: 30px;
+    grid-area: 1 / 1 / 3 / 2;
+  }
+
+  ul {
+    border: 1px solid #ccc;
+    display: grid;
+    gap: 10px;
     padding: 20px;
-
-    span {
-      color: #47af9d;
-      font-size: 30px;
-    }
-
-    ul {
-      border: 1px solid #ccc;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 10px;
-    }
-
-    .column {
-      display: flex;
-      flex-direction: column;
-      padding: 0;
-    }
-
-    .row {
-      flex-direction: row;
-    }
   }
 }
 </style>

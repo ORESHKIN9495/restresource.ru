@@ -110,10 +110,19 @@ onMounted(() => {
       gap: 20px;
       text-align: left;
 
+      @media only screen and (max-width: 1080px) {
+        flex-direction: column;
+      }
+
+      picture {
+        flex: 1;
+      }
+
       article {
         display: flex;
         flex-direction: column;
         gap: 20px;
+        flex: 1;
 
         span {
           display: flex;
@@ -138,7 +147,7 @@ onMounted(() => {
         display: block;
         max-width: 1360px;
         margin: 0 auto;
-        padding: 0;
+        padding: 20px;
         width: 100%;
       }
 
@@ -158,6 +167,10 @@ onMounted(() => {
     &:nth-child(4) {
       display: flex;
       gap: 20px;
+
+      @media only screen and (max-width: 1080px) {
+        flex-wrap: wrap;
+      }
     }
   }
 }
