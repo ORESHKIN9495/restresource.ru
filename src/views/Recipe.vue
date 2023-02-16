@@ -139,6 +139,7 @@ onMounted(() => {
         max-width: 1360px;
         margin: 0 auto;
         padding: 0;
+        width: 100%;
       }
 
       button {
