@@ -60,12 +60,12 @@ footer {
     gap: 20px;
     max-width: 1360px;
     margin: auto;
+    padding: 20px 0;
 
     div {
       align-content: baseline;
       display: grid;
       gap: 20px;
-      padding: 20px;
 
       h3 {
         color: #fff;
@@ -82,9 +82,7 @@ footer {
       }
 
       button {
-        background: none;
         border: 1px solid #595959;
-        padding: 10px 40px;
         text-transform: uppercase;
       }
 
@@ -113,10 +111,9 @@ footer {
   footer {
     section {
       grid-template-columns: 1fr;
+      padding: 0;
 
       div {
-        padding: 0;
-
         h3 {
           display: none;
         }
