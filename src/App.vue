@@ -134,4 +134,12 @@ main {
 img {
   width: 100%;
 }
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 10px 40px;
+  width: 100%;
+}
 </style>

@@ -41,6 +41,21 @@ section {
   padding: 40px;
   position: relative;
 
+  @media only screen and (max-width: 860px) {
+    grid-template-columns: 1fr;
+    padding: 10px;
+
+    div {
+      &:last-child {
+        display: none;
+      }
+
+      button {
+        max-width: 100%;
+      }
+    }
+  }
+
   &::before {
     background: rgba(0, 0, 0, 0.469);
     content: "";
@@ -64,10 +79,7 @@ section {
   }
 
   button {
-    background: none;
     border: 1px solid #fff;
-    outline: none;
-    padding: 10px 40px;
     text-transform: uppercase;
     max-width: 200px;
   }
