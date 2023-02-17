@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import navigate from "../navigate.json";
+import TheButton from "./TheButton.vue";
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import navigate from "../navigate.json";
 
         <hr />
 
-        <button>Manage cookies</button>
+        <TheButton title="Manage cookies" :f="true" />
       </div>
 
       <div>
@@ -79,11 +80,6 @@ footer {
         li {
           color: #fff;
         }
-      }
-
-      button {
-        border: 1px solid #595959;
-        text-transform: uppercase;
       }
 
       hr {

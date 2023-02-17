@@ -132,8 +132,9 @@ main {
 }
 
 img {
-  width: 100%;
+  display: block;
   height: 100%;
+  width: 100%;
 }
 
 button {
@@ -142,6 +143,5 @@ button {
   cursor: pointer;
   outline: none;
   padding: 10px 40px;
-  width: 100%;
 }
 </style>

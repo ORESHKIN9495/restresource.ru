@@ -43,6 +43,11 @@ defineProps<Recipe>();
     display: grid;
     gap: 10px;
 
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
     p {
       color: #3e3e3e;
       font-size: 14px;
@@ -83,6 +88,8 @@ defineProps<Recipe>();
   }
 
   &.grid {
+    grid-template-columns: repeat(3, 1fr);
+
     div {
       &:first-child {
         grid-area: 1 / 1 / 3 / 3;

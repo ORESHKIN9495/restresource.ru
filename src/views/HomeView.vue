@@ -54,7 +54,9 @@ import LoadMore from "../components/LoadMore.vue";
   div {
     display: flex;
     gap: 20px;
+  }
 
+  &__nav {
     @media only screen and (max-width: 860px) {
       flex-wrap: wrap;
     }

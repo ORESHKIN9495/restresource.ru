@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TheButton from "./TheButton.vue";
+</script>
 
 <template>
   <section class="hero">
@@ -11,19 +13,7 @@
     <div>
       <p>This week on Great British Chefs</p>
 
-      <button>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-          <path
-            d="M9.879 11.453 16 17.56l6.121-6.106L24 13.332l-8 8-8-8Zm0 0"
-            style="
-              stroke: none;
-              fill-rule: nonzero;
-              fill: #fff;
-              fill-opacity: 1;
-            "
-          />
-        </svg>
-      </button>
+      <TheButton title="" :d="true" />
     </div>
   </section>
 </template>
@@ -54,12 +44,6 @@
 
     &:last-child {
       margin: auto auto 0;
-
-      button {
-        background: rgba(255, 255, 255, 0.152);
-        border: 1px solid #fff;
-        max-width: 200px;
-      }
     }
   }
 }

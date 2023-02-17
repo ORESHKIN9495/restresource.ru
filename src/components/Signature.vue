@@ -12,7 +12,7 @@ import TheButton from "./TheButton.vue";
         for Great British Chefs Club members.
       </p>
 
-      <TheButton title="Watch now" transparent />
+      <TheButton title="Watch now" :e="true" />
     </div>
 
     <div>
@@ -76,12 +76,6 @@ section {
 
   p {
     color: #ffff;
-  }
-
-  button {
-    border: 1px solid #fff;
-    text-transform: uppercase;
-    max-width: 200px;
   }
 }
 </style>
