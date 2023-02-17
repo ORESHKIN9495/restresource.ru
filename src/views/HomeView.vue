@@ -51,7 +51,7 @@ import LoadMore from "../components/LoadMore.vue";
   margin: auto;
   padding: 40px 0;
 
-  &__nav {
+  div {
     display: flex;
     gap: 20px;
 

@@ -18,9 +18,9 @@ defineProps<Recipe>();
       <picture>
         <img :srcset="card.image" alt="a duck is swimming in a pond with ice" />
 
-        <div class="overlay">
+        <span class="overlay">
           <i class="icon-suit-heart" /> <i class="icon-menu" />
-        </div>
+        </span>
       </picture>
 
       <div>
@@ -36,45 +36,27 @@ defineProps<Recipe>();
 <style scoped lang="scss">
 .card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-  &.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-
-    div {
-      &:first-child {
-        grid-area: 1 / 1 / 3 / 3;
-      }
-    }
-  }
 
   div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 10px;
 
     p {
       color: #3e3e3e;
       font-size: 14px;
     }
+  }
 
-    picture {
-      position: relative;
-      transition: 0.3s ease-in-out;
+  picture {
+    position: relative;
+    transition: 0.3s ease-in-out;
 
-      img {
-        height: 100%;
-        width: 100%;
-      }
-    }
-
-    .overlay {
-      align-items: flex-end;
+    span {
+      align-items: end;
       background: rgba(0, 0, 0, 0.571);
       display: flex;
-      flex-direction: row;
       gap: 10px;
       inset: 0;
       opacity: 0;
@@ -95,6 +77,26 @@ defineProps<Recipe>();
 
         &:hover {
           background: rgba(255, 255, 255, 0.308);
+        }
+      }
+    }
+  }
+
+  &.grid {
+    div {
+      &:first-child {
+        grid-area: 1 / 1 / 3 / 3;
+      }
+    }
+
+    @media only screen and (max-width: 860px) {
+      & {
+        grid-template-columns: 1fr;
+
+        div {
+          &:first-child {
+            grid-area: unset;
+          }
         }
       }
     }
