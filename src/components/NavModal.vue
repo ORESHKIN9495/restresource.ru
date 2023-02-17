@@ -36,7 +36,7 @@ section {
   position: fixed;
   padding-left: calc(29px + 12.2%);
   padding-right: calc(29px + 12.2%);
-  top: 116px;
+  top: 95px;
   width: 100%;
   z-index: 99;
 

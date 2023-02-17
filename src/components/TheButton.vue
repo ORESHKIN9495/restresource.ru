@@ -55,6 +55,10 @@ button {
   &.e {
     border: 1px solid #fff;
     max-width: 280px;
+
+    @media only screen and (max-width: 1080px) {
+      max-width: 100%;
+    }
   }
   &.f {
     border: 1px solid #595959;

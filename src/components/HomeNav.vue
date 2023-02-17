@@ -46,6 +46,18 @@ nav {
 
       ul {
         flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 860px) {
+    & {
+      align-items: flex-start;
+      flex-direction: column;
+
+      ul {
+        flex-direction: column;
       }
     }
   }

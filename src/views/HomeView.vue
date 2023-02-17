@@ -48,7 +48,7 @@ import LoadMore from "../components/LoadMore.vue";
   flex-direction: column;
   gap: 80px;
   max-width: 1360px;
-  margin: auto;
+  margin: 0 auto;
   padding: 40px 0;
 
   div {
@@ -57,6 +57,8 @@ import LoadMore from "../components/LoadMore.vue";
   }
 
   &__nav {
+    gap: 40px !important;
+
     @media only screen and (max-width: 860px) {
       flex-wrap: wrap;
     }

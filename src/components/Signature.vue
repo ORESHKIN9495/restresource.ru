@@ -49,10 +49,6 @@ section {
       &:last-child {
         display: none;
       }
-
-      button {
-        max-width: 100%;
-      }
     }
   }
 
