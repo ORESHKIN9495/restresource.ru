@@ -11,13 +11,13 @@ import article from "../http/article/article.json";
 
     <h2>{{ item.title }}</h2>
 
-    <div class="first_child">
+    <span class="descr">
       <p>
         {{ item.description }}
       </p>
-    </div>
+    </span>
 
-    <div class="last_child">
+    <div>
       <article>
         <span>
           <h3>Social Media</h3>
@@ -30,20 +30,14 @@ import article from "../http/article/article.json";
         <p>
           {{ item.article.first }}
         </p>
-
-        <span></span>
       </article>
 
       <Card :quant="2" />
 
       <article>
-        <span></span>
-
         <p>
           {{ item.article.last }}
         </p>
-
-        <span></span>
       </article>
 
       <p>You may also like</p>
@@ -68,56 +62,46 @@ import article from "../http/article/article.json";
     background: #ccc;
     padding: 200px;
   }
-}
 
-.last_child {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  margin: 20px auto;
-  max-width: 1360px;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 20px auto;
+    max-width: 1360px;
 
-  article {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    gap: 40px;
+    article {
+      display: flex;
+      gap: 40px;
 
-    span {
-      display: block;
-      padding: 300px 150px;
-
-      &:last-child {
-        background: #ccc;
-      }
-
-      &:first-child {
+      span {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 0;
+        flex: 0 0 20%;
 
-        h3 {
-          border-top: 1px solid #ccc;
-          color: #545454;
-          padding: 20px 0 0;
+        @media only screen and (max-width: 780px) {
+          & {
+            display: none;
+          }
         }
 
-        p {
-          color: rgb(114, 114, 114);
+        h3 {
+          color: #545454;
+        }
 
-          &:last-child {
-            border-top: 1px solid #ccc;
-            color: #727272;
-            font-weight: 400;
-            padding: 20px 0 0;
-          }
+        p:not(:last-child) {
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          color: rgb(114, 114, 114);
+          padding: 20px 0;
         }
       }
     }
   }
 }
 
-.first_child {
+.descr {
   border-bottom: 1px solid #ccc;
   border-top: 1px solid #ccc;
 
