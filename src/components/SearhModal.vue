@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import cook from "../cook.json";
+import cook from "../http/recipe/cook.json";
 const product = ref(cook["Meat And Poultry"].product);
 </script>
 

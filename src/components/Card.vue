@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 
-import cards from "../cards.json";
+import cards from "../http/cards.json";
 
 interface Recipe {
   filled?: Boolean;

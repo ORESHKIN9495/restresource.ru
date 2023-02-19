@@ -1,11 +1,11 @@
 {
-  "Meat And Poultry": {
+  "Мясо": {
     "product": ["Beef", "Chicken", "Duck", "Lamb", "Pork", "See more"]
   },
-  "Fish and Seafood": {
+  "Рыба": {
     "product": ["Cod", "Prawn", "Sea bass", "Hake", "Salmon", "See more"]
   },
-  "Vegetables": {
+  "Овощи": {
     "product": [
       "Beetroot",
       "Butternut squash",
@@ -15,7 +15,7 @@
       "See all"
     ]
   },
-  "Knife skills": {
+  "Навыки работы с ножом": {
     "product": [
       "Butchery",
       "Fish preparation",
@@ -25,7 +25,7 @@
       "See all"
     ]
   },
-  "Cakes and Baking": {
+  "Десерты": {
     "product": [
       "Line a tart tin",
       "Blind bake",
@@ -35,7 +35,7 @@
       "Make biscuits"
     ]
   },
-  "Sous vide": {
+  "Соусы": {
     "product": [
       "Sous vide meat",
       "Sous vide fish",
@@ -45,7 +45,7 @@
       "See all"
     ]
   },
-  "Pickling": {
+  "Маринование": {
     "product": [
       "Pickle asparagus",
       "Pickle mackerel",
@@ -55,7 +55,7 @@
       "See all"
     ]
   },
-  "Chef tricks": {
+  "Блюда от шефа": {
     "product": [
       "Brining",
       "Fish stock",

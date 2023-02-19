@@ -3,8 +3,8 @@ import TheButton from "../components/TheButton.vue";
 import NavModal from "./NavModal.vue";
 import SearchModal from "./SearhModal.vue";
 
-import recipe from "../recipe.json";
-import cook from "../cook.json";
+import recipe from "../http/recipe/recipe.json";
+import cook from "../http/recipe/cook.json";
 
 import { ref } from "vue";
 
@@ -32,9 +32,7 @@ const quant = ref();
 
     <div>
       <nav>
-        <span
-          ><a href="/">KITCHEN</a> | <a href="/">GREAT ITALIAN CHEFS</a></span
-        >
+        <span>От рецепта до проекта</span>
 
         <TheButton title="VISIT OUR SHOP" :a="true" />
         <TheButton title="Join our club" :b="true" />
@@ -56,19 +54,18 @@ const quant = ref();
 
         <ul>
           <li @click="(modal = !modal), (prop = recipe), (quant = 5)">
-            Recipe
+            Рецепты
             <i class="icon-menu-down" />
           </li>
 
-          <router-link to="/" text="Chefs" />
+          <router-link to="/" text="Готовые решения" />
+
+          <router-link to="/" text="Информационная база" />
 
           <li @click="(modal = !modal), (prop = cook), (quant = 4)">
-            How to Cook
+            Как готовить
             <i class="icon-menu-down" />
           </li>
-
-          <router-link to="/" text="Features" />
-          <router-link to="/competitions" :text="'Competitions'" />
 
           <form action="#">
             <input

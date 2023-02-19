@@ -1,11 +1,13 @@
 {
-  "Meat And Poultry": {
+  "Салаты": {
     "product": ["Beef", "Chicken", "Duck", "Lamb", "Pork", "See more"]
   },
-  "Fish and Seafood": {
+
+  "Паста": {
     "product": ["Cod", "Prawn", "Sea bass", "Hake", "Salmon", "See more"]
   },
-  "Courses": {
+
+  "Ризотто": {
     "product": [
       "Canapés",
       "Starters",
@@ -15,10 +17,12 @@
       "Petits fours"
     ]
   },
-  "Dish Types": {
+
+  "Мясо": {
     "product": ["Curry", "Soup", "Pasta", "Salad", "One-pot", "Stew"]
   },
-  "Diets": {
+
+  "Рыба": {
     "product": [
       "Vegetarian",
       "Vegan",
@@ -28,7 +32,8 @@
       "Low carb"
     ]
   },
-  "Cakes and Baking": {
+
+  "Десерты": {
     "product": [
       "Easy cake",
       "Loaf cake",
@@ -38,7 +43,8 @@
       "See more"
     ]
   },
-  "Occasions": {
+
+  "Канапе": {
     "product": [
       "Dinner party",
       "Breakfast",
@@ -47,10 +53,12 @@
       "All-day brunch"
     ]
   },
-  "Cuisine": {
+
+  "Супы": {
     "product": ["Mexican", "Italian", "Indian", "Thai", "Chinese", "French"]
   },
-  "Everyday and easy": {
+
+  "Вегетарианские блюда": {
     "product": [
       "Midweek meal",
       "Easy pie",
@@ -58,17 +66,6 @@
       "Easy vegan",
       "Easy curry",
       "See all easy recipes"
-    ]
-  },
-
-  "Seasonal": {
-    "product": [
-      "Celeriac",
-      "Cauliflower",
-      "Kale",
-      "Rhubarb",
-      "Blood orange",
-      "Asparagus"
     ]
   }
 }

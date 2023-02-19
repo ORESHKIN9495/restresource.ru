@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import navigate from "../navigate.json";
+import navigate from "../http/navigate.json";
 import TheButton from "./TheButton.vue";
 </script>
 
