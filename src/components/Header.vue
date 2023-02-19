@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import TheButton from "../components/TheButton.vue";
 import NavModal from "./NavModal.vue";
+import SearchModal from "./SearhModal.vue";
 
 import recipe from "../recipe.json";
 import cook from "../cook.json";
@@ -8,6 +9,8 @@ import cook from "../cook.json";
 import { ref } from "vue";
 
 const modal = ref(false);
+
+const focus = ref(false);
 
 const prop = ref();
 
@@ -68,9 +71,16 @@ const quant = ref();
           <router-link to="/competitions" :text="'Competitions'" />
 
           <form action="#">
-            <input type="text" placeholder="search" />
+            <input
+              @focusin="focus = !focus"
+              @focusout="focus = !focus"
+              type="text"
+              placeholder="search"
+            />
 
             <i class="icon-search-solid" />
+
+            <SearchModal v-if="focus" />
           </form>
         </ul>
       </nav>
@@ -145,6 +155,7 @@ header {
           margin: 0 0 0 auto;
           max-width: 400px;
           width: 100%;
+          position: relative;
 
           input {
             border: none;
