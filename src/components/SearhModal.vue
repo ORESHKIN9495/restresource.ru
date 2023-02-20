@@ -16,6 +16,7 @@ const product = ref(cook.Мясо.product);
 
 <style scoped lang="scss">
 .popular {
+  border: 1px solid #ccc;
   position: absolute;
   top: 52px;
   left: 0;

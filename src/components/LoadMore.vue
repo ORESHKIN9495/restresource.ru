@@ -7,9 +7,9 @@ import Card from "../components/Card.vue";
     <h2>Latest from Great British Chefs</h2>
 
     <div>
-      <Card :filled="false" :quant="3" />
-      <Card :filled="false" :quant="2" />
-      <Card :filled="false" :quant="3" />
+      <Card :filled="false" :quant="3" collection="Recipe" />
+      <Card :filled="false" :quant="2" collection="Recipe" />
+      <Card :filled="false" :quant="3" collection="Recipe" />
     </div>
   </section>
 </template>

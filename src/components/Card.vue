@@ -1,20 +1,31 @@
 <script setup lang="ts">
 import { defineProps } from "vue";
 
+import { useRouter } from "vue-router";
+
 import cards from "../http/cards.json";
+
+const router = useRouter();
 
 interface Recipe {
   filled?: Boolean;
   grid?: Boolean;
   quant?: any;
+  collection?: String;
 }
 
-defineProps<Recipe>();
+const props = defineProps<Recipe>();
+
+const ad = cards.cards.filter((i) => i.collection == props.collection);
 </script>
 
 <template>
-  <section class="card" :class="{ grid: grid }">
-    <div v-for="(card, index) in cards.cards.slice(0, quant)">
+  <section
+    class="card"
+    :class="{ grid: grid }"
+    @click="router.push({ path: `/${collection}` })"
+  >
+    <div v-for="(card, index) in ad.slice(0, quant)">
       <picture>
         <img :srcset="card.image" alt="a duck is swimming in a pond with ice" />
 
@@ -35,8 +46,9 @@ defineProps<Recipe>();
 
 <style scoped lang="scss">
 .card {
+  cursor: pointer;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 
   div {

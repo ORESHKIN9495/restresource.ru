@@ -17,7 +17,7 @@ onMounted(() => {
     <h2>Method</h2>
 
     <div v-for="(item, index) in items.steps">
-      <span>{{ index }}</span>
+      <span>{{ index + 1 }}</span>
 
       <p>{{ item.description }}</p>
 

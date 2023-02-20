@@ -32,7 +32,7 @@ import article from "../http/article/article.json";
         </p>
       </article>
 
-      <Card :quant="2" />
+      <Card :quant="2" collection="article" />
 
       <article>
         <p>

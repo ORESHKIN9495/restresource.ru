@@ -16,14 +16,14 @@ import LoadMore from "../components/LoadMore.vue";
       <div class="home__grid">
         <h2>I feel it in my fingers</h2>
 
-        <Card :filled="true" :grid="true" :quant="3" />
+        <Card :filled="true" :grid="true" :quant="3" collection="article" />
       </div>
     </div>
 
     <div class="home__row">
       <h2>Heart-y plates</h2>
 
-      <Card :filled="false" :quant="5" />
+      <Card :filled="false" :quant="5" collection="recipe" />
     </div>
 
     <div class="home__row">
@@ -33,7 +33,7 @@ import LoadMore from "../components/LoadMore.vue";
     <div class="home__grid">
       <h2>The bright shades of winter</h2>
 
-      <Card :filled="true" :grid="true" :quant="3" />
+      <Card :filled="true" :grid="true" :quant="3" collection="article" />
     </div>
 
     <div class="home__row">
