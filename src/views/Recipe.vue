@@ -77,7 +77,7 @@ onMounted(() => {
       </button>
 
       <span v-if="change">
-        <Card :quant="5" />
+        <Card :quant="5" collection="recipe" />
       </span>
     </div>
 
