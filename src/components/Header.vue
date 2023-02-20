@@ -53,7 +53,7 @@ const quant = ref();
         />
 
         <ul>
-          <li @click="(modal = !modal), (prop = recipe), (quant = 5)">
+          <li @click="(modal = !modal), (prop = recipe)">
             Рецепты
             <i class="icon-menu-down" />
           </li>
@@ -62,7 +62,7 @@ const quant = ref();
 
           <router-link to="/" text="Информационная база" />
 
-          <li @click="(modal = !modal), (prop = cook), (quant = 4)">
+          <li @click="(modal = !modal), (prop = cook)">
             Как готовить
             <i class="icon-menu-down" />
           </li>
