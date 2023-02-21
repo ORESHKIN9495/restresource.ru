@@ -9,13 +9,14 @@ interface Button {
   d?: Boolean;
   e?: Boolean;
   f?: Boolean;
+  g?: Boolean;
 }
 
 defineProps<Button>();
 </script>
 
 <template>
-  <button :class="{ a: a, b: b, c: c, d: d, e: e, f: f }">
+  <button :class="{ a: a, b: b, c: c, d: d, e: e, f: f, g: g }">
     {{ title }}
 
     <svg v-if="d" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
@@ -62,6 +63,11 @@ button {
   }
   &.f {
     border: 1px solid #595959;
+    text-transform: uppercase;
+  }
+
+  &.g {
+    background: #ccc;
     text-transform: uppercase;
   }
 }

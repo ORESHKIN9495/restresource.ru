@@ -39,7 +39,7 @@ const quant = ref();
         <TheButton title="Members Area" :c="true" />
 
         <span
-          ><router-link to="/" text="Sign in" /> |
+          ><router-link to="/signin" text="Sign in" /> |
           <router-link to="/" text="Register"
         /></span>
       </nav>
