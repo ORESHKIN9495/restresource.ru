@@ -243,13 +243,11 @@ section {
       color: #ccc;
       font-size: 16px;
       padding: 10px 0;
-      transition: 0.3s ease-in-out;
-      width: 120px;
+      transition: 0.2s ease-in-out;
 
       &.active {
         border-color: #ccc;
         box-shadow: 0 19px 28px -18px #ccc;
-        width: 100%;
       }
 
       &.err {
