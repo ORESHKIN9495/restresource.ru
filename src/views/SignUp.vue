@@ -13,6 +13,9 @@ const regExpUser = /^[a-z0-9_-]{3,16}$/;
 const regExpPass =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
 
+const regExpConf =
+  /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
+
 const setActive = (index: any) => (selectedItem.value = index);
 
 const errRegExpUser = ref(false);
@@ -21,13 +24,35 @@ const errRegExpPass = ref(false);
 const userData = {
   username: {
     value: "",
-    placeholder: "Username ",
+    placeholder: "Username",
     err: false,
     type: "text",
   },
+
+  firstName: {
+    value: "",
+    placeholder: "First Name",
+    err: false,
+    type: "text",
+  },
+
+  lastName: {
+    value: "",
+    placeholder: "Last Name",
+    err: false,
+    type: "text",
+  },
+
   password: {
     value: "",
     placeholder: "Password",
+    err: false,
+    type: "text",
+  },
+
+  confirm: {
+    value: "",
+    placeholder: "Confirm Password",
     err: false,
     type: "text",
   },
@@ -49,6 +74,36 @@ const validation = () => {
     disabled.value = false;
   }
 
+  if (userData.firstName.value == "") {
+    userData.firstName.err = true;
+    userData.firstName.placeholder = "Поле должно быть заполнено";
+    disabled.value = true;
+  } else if (!regExpUser.test(userData.firstName.value)) {
+    disabled.value = true;
+    userData.firstName.err = true;
+    errRegExpUser.value = true;
+  } else {
+    userData.firstName.err = false;
+    errRegExpUser.value = false;
+    userData.firstName.placeholder = "First Name";
+    disabled.value = false;
+  }
+
+  if (userData.lastName.value == "") {
+    userData.lastName.err = true;
+    userData.lastName.placeholder = "Поле должно быть заполнено";
+    disabled.value = true;
+  } else if (!regExpUser.test(userData.lastName.value)) {
+    disabled.value = true;
+    userData.lastName.err = true;
+    errRegExpUser.value = true;
+  } else {
+    userData.lastName.err = false;
+    errRegExpUser.value = false;
+    userData.lastName.placeholder = "Last Name";
+    disabled.value = false;
+  }
+
   if (userData.password.value == "") {
     userData.password.err = true;
     userData.password.placeholder = "Поле должно быть заполнено";
@@ -62,24 +117,39 @@ const validation = () => {
     errRegExpPass.value = false;
     userData.password.placeholder = "Password";
     disabled.value = false;
+  }
 
-    getData();
+  if (userData.confirm.value == "") {
+    userData.confirm.err = true;
+    userData.confirm.placeholder = "Поле должно быть заполнено";
+    disabled.value = true;
+  } else if (!regExpConf.test(userData.confirm.value)) {
+    disabled.value = true;
+    userData.confirm.err = true;
+    errRegExpPass.value = true;
+  } else if (userData.password.value != userData.confirm.value) {
+    disabled.value = true;
+    userData.confirm.err = true;
+    errRegExpPass.value = true;
+  } else {
+    userData.confirm.err = false;
+    errRegExpPass.value = false;
+    userData.confirm.placeholder = "Confirm Password";
+    disabled.value = false;
   }
 };
 
-const getData = () => {
+const setData = () => {
   router.push({ path: "/" });
 };
 
-const postData = () => {
-  validation();
-};
+const postData = () => {};
 </script>
 
 <template>
   <section>
     <form action="#" method="POST" @submit.prevent="postData">
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
 
       <input
         v-for="(i, index) in userData"
@@ -95,18 +165,13 @@ const postData = () => {
 
       <span>
         <TheButton
-          title="Login"
+          title="Register"
           :g="true"
           type="submit"
           :disabled="disabled == !disabled"
         />
         <TheButton
           title="Cancel"
-          :g="true"
-          @click.prevent="router.push({ path: '/' })"
-        />
-        <TheButton
-          title="Forgot your password?"
           :g="true"
           @click.prevent="router.push({ path: '/' })"
         />

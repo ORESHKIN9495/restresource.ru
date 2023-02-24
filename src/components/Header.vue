@@ -40,7 +40,7 @@ const quant = ref();
 
         <span
           ><router-link to="/signin" text="Sign in" /> |
-          <router-link to="/" text="Register"
+          <router-link to="/signup" text="Register"
         /></span>
       </nav>
 
