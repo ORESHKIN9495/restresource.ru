@@ -7,22 +7,37 @@ import TheButton from "../components/TheButton.vue";
 const router = useRouter();
 
 const selectedItem = ref();
+const disabled = ref(false);
 
 const setActive = (index: any) => (selectedItem.value = index);
-
-const active = ref(false);
-const err = ref(false);
 
 const userData = ref({
   username: {
     value: "",
     placeholder: "Username or Email Address",
+    err: false,
   },
   password: {
     value: "",
     placeholder: "Password",
+    err: false,
   },
 });
+
+const invalid = () => {
+  if (userData.value.username.value == "") {
+    userData.value.username.err = true;
+    disabled.value = true;
+  } else if (userData.value.password.value == "") {
+    userData.value.password.err = true;
+    disabled.value = true;
+  } else {
+    userData.value.username.err = false;
+    userData.value.password.err = false;
+    disabled.value = false;
+    postData();
+  }
+};
 
 const postData = () => {
   userData.value.username.value = userData.value.password.value = "";
@@ -31,7 +46,7 @@ const postData = () => {
 
 <template>
   <section>
-    <form action="#" method="POST" @submit.prevent="postData">
+    <form action="#" method="POST">
       <h1>Sign In</h1>
 
       <input
@@ -39,12 +54,18 @@ const postData = () => {
         type="text"
         :placeholder="i.placeholder"
         v-model.trim="i.value"
-        :class="{ active: index == selectedItem, err: err }"
+        :class="{ active: index == selectedItem, err: i.err }"
         @click="setActive(index)"
       />
 
       <span>
-        <TheButton title="Login" :g="true" type="submit" />
+        <TheButton
+          title="Login"
+          :g="true"
+          type="submit"
+          :disabled="disabled == !disabled"
+          @click.prevent="invalid()"
+        />
         <TheButton
           title="Cancel"
           :g="true"
