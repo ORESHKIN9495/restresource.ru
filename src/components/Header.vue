@@ -155,9 +155,7 @@ header {
           position: relative;
 
           input {
-            border: none;
             color: #000;
-            outline: none;
             padding: 0 20px;
             width: 100%;
           }

@@ -172,9 +172,7 @@ const setData = () => {
 };
 
 const postData = () => {
-  if (disabled) {
-    validate();
-  }
+  validate();
 };
 </script>
 
@@ -203,7 +201,7 @@ const postData = () => {
           :disabled="disabled == !disabled"
         />
         <TheButton
-          title="Cancel"
+          title="Go Back"
           :g="true"
           @click.prevent="router.push({ path: '/' })"
         />
@@ -220,7 +218,6 @@ section {
   gap: 20px;
   height: 100vh;
   justify-content: center;
-  color: #fa0202;
 
   form {
     background: #fff;
@@ -239,12 +236,9 @@ section {
     }
 
     input {
-      border: none;
-      background: none;
       border-bottom: 2px solid transparent;
       color: #ccc;
       font-size: 16px;
-      outline: none;
       padding: 10px 0;
       transition: 0.2s ease-in-out;
 

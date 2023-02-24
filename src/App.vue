@@ -137,6 +137,12 @@ img {
   width: 100%;
 }
 
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
 button {
   background: none;
   border: none;
