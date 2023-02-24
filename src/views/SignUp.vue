@@ -7,24 +7,33 @@ import TheButton from "../components/TheButton.vue";
 const router = useRouter();
 
 const selectedItem = ref();
+
 const disabled = ref(false);
 
+const errTitle = ref("");
+
 const regExpUser = /^[a-z0-9_-]{3,16}$/;
+
 const regExpPass =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
 
 const regExpConf =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
 
-const setActive = (index: any) => (selectedItem.value = index);
-
-const errRegExpUser = ref(false);
-const errRegExpPass = ref(false);
+const regExpEmail =
+  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const userData = {
   username: {
     value: "",
     placeholder: "Username",
+    err: false,
+    type: "text",
+  },
+
+  email: {
+    value: "",
+    placeholder: "Email",
     err: false,
     type: "text",
   },
@@ -58,7 +67,7 @@ const userData = {
   },
 };
 
-const validation = () => {
+const validate = () => {
   if (userData.username.value == "") {
     userData.username.err = true;
     userData.username.placeholder = "Поле должно быть заполнено";
@@ -66,11 +75,26 @@ const validation = () => {
   } else if (!regExpUser.test(userData.username.value)) {
     disabled.value = true;
     userData.username.err = true;
-    errRegExpUser.value = true;
+    errTitle.value = "Введиде корректное имя пользователя";
   } else {
     userData.username.err = false;
-    errRegExpUser.value = false;
+    errTitle.value = "";
     userData.username.placeholder = "Username";
+    disabled.value = false;
+  }
+
+  if (userData.email.value == "") {
+    userData.email.err = true;
+    userData.email.placeholder = "Поле должно быть заполнено";
+    disabled.value = true;
+  } else if (!regExpEmail.test(userData.email.value)) {
+    disabled.value = true;
+    userData.email.err = true;
+    errTitle.value = "Введиде корректный email";
+  } else {
+    userData.email.err = false;
+    errTitle.value = "";
+    userData.email.placeholder = "Username";
     disabled.value = false;
   }
 
@@ -81,10 +105,10 @@ const validation = () => {
   } else if (!regExpUser.test(userData.firstName.value)) {
     disabled.value = true;
     userData.firstName.err = true;
-    errRegExpUser.value = true;
+    errTitle.value = "Введиде корректное имя";
   } else {
     userData.firstName.err = false;
-    errRegExpUser.value = false;
+    errTitle.value = "";
     userData.firstName.placeholder = "First Name";
     disabled.value = false;
   }
@@ -96,10 +120,10 @@ const validation = () => {
   } else if (!regExpUser.test(userData.lastName.value)) {
     disabled.value = true;
     userData.lastName.err = true;
-    errRegExpUser.value = true;
+    errTitle.value = "Введиде корректную фамилию";
   } else {
     userData.lastName.err = false;
-    errRegExpUser.value = false;
+    errTitle.value = "";
     userData.lastName.placeholder = "Last Name";
     disabled.value = false;
   }
@@ -110,11 +134,11 @@ const validation = () => {
     disabled.value = true;
   } else if (!regExpPass.test(userData.password.value)) {
     userData.password.err = true;
-    errRegExpPass.value = true;
+    errTitle.value = "Введиде корректный пароль";
     disabled.value = true;
   } else {
     userData.password.err = false;
-    errRegExpPass.value = false;
+    errTitle.value = "";
     userData.password.placeholder = "Password";
     disabled.value = false;
   }
@@ -126,24 +150,32 @@ const validation = () => {
   } else if (!regExpConf.test(userData.confirm.value)) {
     disabled.value = true;
     userData.confirm.err = true;
-    errRegExpPass.value = true;
-  } else if (userData.password.value != userData.confirm.value) {
+    errTitle.value = "Введиде корректный пароль";
+  } else if (userData.password.value !== userData.confirm.value) {
     disabled.value = true;
     userData.confirm.err = true;
-    errRegExpPass.value = true;
+    errTitle.value = "Пароли не совпадают";
   } else {
     userData.confirm.err = false;
-    errRegExpPass.value = false;
+    errTitle.value = "";
     userData.confirm.placeholder = "Confirm Password";
     disabled.value = false;
+
+    setData();
   }
 };
 
 const setData = () => {
+  localStorage.setItem("username", userData.username.value);
+  localStorage.setItem("password", userData.password.value);
   router.push({ path: "/" });
 };
 
-const postData = () => {};
+const postData = () => {
+  if (disabled) {
+    validate();
+  }
+};
 </script>
 
 <template>
@@ -157,11 +189,11 @@ const postData = () => {};
         :placeholder="i.placeholder"
         v-model.trim="i.value"
         :class="{ active: index == selectedItem, err: i.err }"
-        @click="setActive(index)"
+        @focus="selectedItem = index"
+        @focusout="selectedItem = null"
       />
 
-      <p v-if="errRegExpUser">Введите корректное значение имени пользователя</p>
-      <p v-if="errRegExpPass">Введите корректное значение пароля</p>
+      <p>{{ errTitle }}</p>
 
       <span>
         <TheButton
@@ -211,14 +243,14 @@ section {
       background: none;
       border-bottom: 2px solid transparent;
       color: #ccc;
-      font-size: 20px;
+      font-size: 16px;
       outline: none;
       padding: 10px 0;
       transition: 0.2s ease-in-out;
 
       &.active {
-        border-color: #facd02;
-        box-shadow: 0 19px 28px -18px #facd02;
+        border-color: #ccc;
+        box-shadow: 0 19px 28px -18px #ccc;
       }
 
       &.err {

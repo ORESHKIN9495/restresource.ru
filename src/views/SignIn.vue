@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 
 import TheButton from "../components/TheButton.vue";
@@ -7,13 +7,14 @@ import TheButton from "../components/TheButton.vue";
 const router = useRouter();
 
 const selectedItem = ref();
+
 const disabled = ref(false);
+
+const errTitle = ref("");
 
 const regExpUser = /^[a-z0-9_-]{3,16}$/;
 const regExpPass =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
-
-const setActive = (index: any) => (selectedItem.value = index);
 
 const errRegExpUser = ref(false);
 const errRegExpPass = ref(false);
@@ -41,10 +42,10 @@ const validation = () => {
   } else if (!regExpUser.test(userData.username.value)) {
     disabled.value = true;
     userData.username.err = true;
-    errRegExpUser.value = true;
+    errTitle.value = "Введите корректное значение имени пользователя";
   } else {
     userData.username.err = false;
-    errRegExpUser.value = false;
+    errTitle.value = "";
     userData.username.placeholder = "Username";
     disabled.value = false;
   }
@@ -55,11 +56,11 @@ const validation = () => {
     disabled.value = true;
   } else if (!regExpPass.test(userData.password.value)) {
     userData.password.err = true;
-    errRegExpPass.value = true;
+    errTitle.value = "Введите корректный пароль";
     disabled.value = true;
   } else {
     userData.password.err = false;
-    errRegExpPass.value = false;
+    errTitle.value = "";
     userData.password.placeholder = "Password";
     disabled.value = false;
 
@@ -68,7 +69,15 @@ const validation = () => {
 };
 
 const getData = () => {
-  router.push({ path: "/" });
+  const userName = localStorage.getItem("username");
+  const userPass = localStorage.getItem("password");
+
+  if (
+    userData.username.value == userName &&
+    userData.password.value == userPass
+  ) {
+    router.push({ path: "/" });
+  }
 };
 
 const postData = () => {
@@ -87,11 +96,11 @@ const postData = () => {
         :placeholder="i.placeholder"
         v-model.trim="i.value"
         :class="{ active: index == selectedItem, err: i.err }"
-        @click="setActive(index)"
+        @focus="selectedItem = index"
+        @focusout="selectedItem = null"
       />
 
-      <p v-if="errRegExpUser">Введите корректное значение имени пользователя</p>
-      <p v-if="errRegExpPass">Введите корректное значение пароля</p>
+      <p>{{ errTitle }}</p>
 
       <span>
         <TheButton
@@ -146,14 +155,14 @@ section {
       background: none;
       border-bottom: 2px solid transparent;
       color: #ccc;
-      font-size: 20px;
+      font-size: 16px;
       outline: none;
       padding: 10px 0;
       transition: 0.2s ease-in-out;
 
       &.active {
-        border-color: #facd02;
-        box-shadow: 0 19px 28px -18px #facd02;
+        border-color: #ccc;
+        box-shadow: 0 19px 28px -18px #ccc;
       }
 
       &.err {
