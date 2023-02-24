@@ -189,6 +189,8 @@ const postData = () => {
         :class="{ active: index == selectedItem, err: i.err }"
         @focus="selectedItem = index"
         @focusout="selectedItem = null"
+        :minlength="3"
+        :maxlength="16"
       />
 
       <p>{{ errTitle }}</p>
@@ -228,6 +230,7 @@ section {
     max-width: 600px;
     padding: 80px;
     width: 100%;
+    position: relative;
 
     h1 {
       font-size: 30px;
@@ -240,11 +243,13 @@ section {
       color: #ccc;
       font-size: 16px;
       padding: 10px 0;
-      transition: 0.2s ease-in-out;
+      transition: 0.3s ease-in-out;
+      width: 120px;
 
       &.active {
         border-color: #ccc;
         box-shadow: 0 19px 28px -18px #ccc;
+        width: 100%;
       }
 
       &.err {
