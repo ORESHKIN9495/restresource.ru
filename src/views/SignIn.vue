@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 import TheButton from "../components/TheButton.vue";
@@ -15,9 +15,6 @@ const errTitle = ref("");
 const regExpUser = /^[a-z0-9_-]{3,16}$/;
 const regExpPass =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
-
-const errRegExpUser = ref(false);
-const errRegExpPass = ref(false);
 
 const userData = {
   username: {

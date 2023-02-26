@@ -4,15 +4,11 @@ import { useRouter } from "vue-router";
 
 import TheButton from "../components/TheButton.vue";
 
-const router = useRouter();
-
-const selectedItem = ref();
-
-const disabled = ref(false);
-
-const errTitle = ref("");
-
 const regExpUser = /^[a-z0-9_-]{3,16}$/;
+
+const regExpFirstname = /^[a-z0-9_-]{3,16}$/;
+
+const regExpLastname = /^[a-z0-9_-]{3,16}$/;
 
 const regExpPass =
   /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
@@ -23,12 +19,76 @@ const regExpConf =
 const regExpEmail =
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-const userData = {
+const router = useRouter();
+
+const selectedItem = ref();
+
+const disabled = ref(false);
+
+interface UserI {
+  username: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+
+  email: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+
+  firstname: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+
+  lastname: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+
+  password: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+
+  confirm: {
+    value: string;
+    placeholder: string;
+    err: boolean;
+    type: string;
+    name: string;
+    errTitle: string;
+  };
+}
+
+const users: UserI = {
   username: {
     value: "",
     placeholder: "Username",
     err: false,
     type: "text",
+    name: "username",
+    errTitle: "",
   },
 
   email: {
@@ -36,20 +96,26 @@ const userData = {
     placeholder: "Email",
     err: false,
     type: "text",
+    name: "email",
+    errTitle: "",
   },
 
-  firstName: {
+  firstname: {
     value: "",
     placeholder: "First Name",
     err: false,
     type: "text",
+    name: "firstName",
+    errTitle: "",
   },
 
-  lastName: {
+  lastname: {
     value: "",
     placeholder: "Last Name",
     err: false,
     type: "text",
+    name: "lastName",
+    errTitle: "",
   },
 
   password: {
@@ -57,6 +123,8 @@ const userData = {
     placeholder: "Password",
     err: false,
     type: "text",
+    name: "password",
+    errTitle: "",
   },
 
   confirm: {
@@ -64,136 +132,166 @@ const userData = {
     placeholder: "Confirm Password",
     err: false,
     type: "text",
+    name: "confirm",
+    errTitle: "",
   },
 };
 
-const validate = () => {
-  if (userData.username.value == "") {
-    userData.username.err = true;
-    userData.username.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpUser.test(userData.username.value)) {
-    disabled.value = true;
-    userData.username.err = true;
-    errTitle.value = "Введиде корректное имя пользователя";
-  } else {
-    userData.username.err = false;
-    errTitle.value = "";
-    userData.username.placeholder = "Username";
-    disabled.value = false;
-  }
-
-  if (userData.email.value == "") {
-    userData.email.err = true;
-    userData.email.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpEmail.test(userData.email.value)) {
-    disabled.value = true;
-    userData.email.err = true;
-    errTitle.value = "Введиде корректный email";
-  } else {
-    userData.email.err = false;
-    errTitle.value = "";
-    userData.email.placeholder = "Username";
-    disabled.value = false;
-  }
-
-  if (userData.firstName.value == "") {
-    userData.firstName.err = true;
-    userData.firstName.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpUser.test(userData.firstName.value)) {
-    disabled.value = true;
-    userData.firstName.err = true;
-    errTitle.value = "Введиде корректное имя";
-  } else {
-    userData.firstName.err = false;
-    errTitle.value = "";
-    userData.firstName.placeholder = "First Name";
-    disabled.value = false;
-  }
-
-  if (userData.lastName.value == "") {
-    userData.lastName.err = true;
-    userData.lastName.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpUser.test(userData.lastName.value)) {
-    disabled.value = true;
-    userData.lastName.err = true;
-    errTitle.value = "Введиде корректную фамилию";
-  } else {
-    userData.lastName.err = false;
-    errTitle.value = "";
-    userData.lastName.placeholder = "Last Name";
-    disabled.value = false;
-  }
-
-  if (userData.password.value == "") {
-    userData.password.err = true;
-    userData.password.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpPass.test(userData.password.value)) {
-    userData.password.err = true;
-    errTitle.value = "Введиде корректный пароль";
+const prepare = (users: UserI) => {
+  const err = validate(users);
+  if (!err) {
+    console.log("Ошибка");
     disabled.value = true;
   } else {
-    userData.password.err = false;
-    errTitle.value = "";
-    userData.password.placeholder = "Password";
-    disabled.value = false;
-  }
+    // отправляем что-то в вуекс
 
-  if (userData.confirm.value == "") {
-    userData.confirm.err = true;
-    userData.confirm.placeholder = "Поле должно быть заполнено";
-    disabled.value = true;
-  } else if (!regExpConf.test(userData.confirm.value)) {
-    disabled.value = true;
-    userData.confirm.err = true;
-    errTitle.value = "Введиде корректный пароль";
-  } else if (userData.password.value !== userData.confirm.value) {
-    disabled.value = true;
-    userData.confirm.err = true;
-    errTitle.value = "Пароли не совпадают";
-  } else {
-    userData.confirm.err = false;
-    errTitle.value = "";
-    userData.confirm.placeholder = "Confirm Password";
-    disabled.value = false;
-
-    setData();
+    console.log("отправляю");
   }
 };
 
-const setData = () => {
-  localStorage.setItem("username", userData.username.value);
-  localStorage.setItem("password", userData.password.value);
-  router.push({ path: "/" });
-};
+const validate = (users: UserI) => {
+  if (users.username.value == "") {
+    users.username.err = true;
+    users.username.errTitle = "Поле должно быть заполнено";
 
-const postData = () => {
-  validate();
+    return false;
+  } else if (users.username.value.length < 3) {
+    users.username.err = true;
+    users.username.errTitle = "Имя пользователя должно быть больше 3 символов";
+
+    return false;
+  } else if (!regExpUser.test(users.username.value)) {
+    users.username.err = true;
+    users.username.errTitle = "Введите корректное имя пользователя";
+
+    return false;
+  } else {
+    users.username.err = false;
+    users.username.errTitle = "";
+  }
+
+  if (users.email.value == "") {
+    users.email.err = true;
+    users.email.errTitle = "Поле должно быть заполнено";
+
+    return false;
+  } else if (users.email.value.length < 3) {
+    users.email.err = true;
+    users.email.errTitle = "Email должен быть больше 3 символов";
+
+    return false;
+  } else if (!regExpEmail.test(users.email.value)) {
+    users.email.err = true;
+    users.email.errTitle = "Введите корректный Email";
+
+    return false;
+  } else {
+    users.email.err = false;
+    users.email.errTitle = "";
+  }
+
+  if (users.firstname.value == "") {
+    users.firstname.err = true;
+    users.firstname.errTitle = "Поле должно быть заполнено";
+
+    return false;
+  } else if (users.firstname.value.length < 3) {
+    users.firstname.err = true;
+    users.firstname.errTitle = "Имя должно быть больше 3 символов";
+
+    return false;
+  } else if (!regExpFirstname.test(users.firstname.value)) {
+    users.firstname.err = true;
+    users.firstname.errTitle = "Введите корректное имя";
+
+    return false;
+  } else {
+    users.firstname.err = false;
+    users.firstname.errTitle = "";
+  }
+
+  if (users.lastname.value == "") {
+    users.lastname.err = true;
+    users.lastname.errTitle = "Поле должно быть заполнено";
+
+    return false;
+  } else if (users.lastname.value.length < 3) {
+    users.lastname.err = true;
+    users.lastname.errTitle = "Фамилия должена быть больше 3 символов";
+
+    return false;
+  } else if (!regExpLastname.test(users.lastname.value)) {
+    users.lastname.err = true;
+    users.lastname.errTitle = "Введите корректное имя";
+
+    return false;
+  } else {
+    users.lastname.err = false;
+    users.lastname.errTitle = "";
+  }
+
+  if (users.password.value == "") {
+    users.password.err = true;
+    users.password.errTitle = "Поле должно быть заполнено";
+
+    return false;
+  } else if (users.password.value.length < 3) {
+    users.password.err = true;
+    users.password.errTitle = "Пароль должен быть больше 3 символов";
+
+    return false;
+  } else if (!regExpPass.test(users.password.value)) {
+    users.password.err = true;
+    users.password.errTitle = "Введите корректный пароль";
+
+    return false;
+  } else {
+    users.password.err = false;
+    users.password.errTitle = "";
+  }
+
+  if (users.confirm.value == "") {
+    users.confirm.err = true;
+    users.confirm.errTitle = "Поле должно быть заполнено";
+
+    return false;
+  } else if (users.confirm.value.length < 3) {
+    users.confirm.err = true;
+    users.confirm.errTitle = "Пароль должен быть больше 3 символов";
+
+    return false;
+  } else if (users.password.value !== users.confirm.value) {
+    users.confirm.err = true;
+    users.confirm.errTitle = "Пароли не совпадают";
+
+    return false;
+  } else {
+    users.confirm.err = false;
+    users.confirm.errTitle = "";
+  }
+
+  return true;
 };
 </script>
 
 <template>
   <section>
-    <form action="#" method="POST" @submit.prevent="postData">
+    <form action="#" method="POST" @submit.prevent="prepare(users)">
       <h1>Sign Up</h1>
 
-      <input
-        v-for="(i, index) in userData"
-        :type="i.type"
-        :placeholder="i.placeholder"
-        v-model.trim="i.value"
-        :class="{ active: index == selectedItem, err: i.err }"
-        @focus="selectedItem = index"
-        @focusout="selectedItem = null"
-        :minlength="3"
-        :maxlength="16"
-      />
+      <label :for="i.name" v-for="(i, index) in users">
+        <p>{{ i.errTitle }}</p>
 
-      <p>{{ errTitle }}</p>
+        <input
+          :type="i.type"
+          :placeholder="i.placeholder"
+          v-model.trim="i.value"
+          :class="{ active: index == selectedItem, invalid: i.err }"
+          @focusin="selectedItem = index"
+          @focusout="selectedItem = null"
+          :name="i.name"
+        />
+      </label>
 
       <span>
         <TheButton
@@ -238,25 +336,29 @@ section {
       color: #ccc;
     }
 
+    label {
+      p {
+        font-size: 14px;
+        color: #fa02023e;
+      }
+    }
+
     input {
       border-bottom: 2px solid transparent;
       color: #ccc;
       font-size: 16px;
       padding: 10px 0;
       transition: 0.2s ease-in-out;
+      width: 100%;
 
       &.active {
         border-color: #ccc;
         box-shadow: 0 19px 28px -18px #ccc;
       }
 
-      &.err {
+      &.invalid {
         border-color: #fa0202;
         box-shadow: 0 19px 28px -18px #fa02027b;
-
-        &::placeholder {
-          color: #fa0202;
-        }
       }
     }
 
