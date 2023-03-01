@@ -5,45 +5,61 @@ import TheButton from "./TheButton.vue";
 <template>
   <section class="hero">
     <div>
-      <h1>Great British Chefs</h1>
+      <h1>Le Gruyère</h1>
 
-      <p>Inspiring food lovers everywhere</p>
-    </div>
+      <p>
+        Швейцария известна широким ассортиментом удивительных сыров, но если
+        есть один, который особенно захватил мир, то это Грюйер.
+      </p>
 
-    <div>
-      <p>This week on Great British Chefs</p>
+      <p>Новости за неделю на Ресторанном</p>
 
-      <TheButton title="" :d="true" />
+      <TheButton title="" :c="true" />
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
 .hero {
-  background: #ccc;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  background-image: url("../assets/image/vadim-markin-BFtIlGdWKbk-unsplash.jpg");
+  background-size: cover;
+  background-position: center 82%;
+  background-repeat: no-repeat;
+  height: 900px;
+  position: relative;
+
+  &::before {
+    background: #24242490;
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
 
   div {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
     margin: auto;
     max-width: 1360px;
-    width: 100%;
+    position: relative;
 
     h1 {
       color: #fff;
       font-size: 60px;
+      margin: auto 0 0;
     }
 
     p {
       color: #fff;
-    }
+      font-size: 28px;
+      max-width: 630px;
 
-    &:last-child {
-      margin: auto auto 0;
+      &:nth-child(3) {
+        font-size: 20px;
+        margin: auto 0 0;
+        max-width: 300px;
+      }
     }
   }
 }

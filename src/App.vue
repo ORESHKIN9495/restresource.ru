@@ -149,5 +149,6 @@ button {
   cursor: pointer;
   outline: none;
   padding: 10px 40px;
+  width: 100%;
 }
 </style>

@@ -12,7 +12,7 @@ import TheButton from "./TheButton.vue";
         for Great British Chefs Club members.
       </p>
 
-      <TheButton title="Watch now" :e="true" />
+      <TheButton title="Watch now" :d="true" />
     </div>
 
     <div>

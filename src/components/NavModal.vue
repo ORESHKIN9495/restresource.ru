@@ -1,28 +1,14 @@
-<script setup lang="ts">
-import { defineEmits, defineProps } from "vue";
-
-defineEmits(["close"]);
-
-interface Change {
-  props: any;
-}
-
-defineProps<Change>();
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <section>
-    <i class="icon-close" @click="$emit('close')" />
+    <i class="icon-close" />
 
     <div>
-      <ul v-for="(i, index) in props">
-        <p>{{ index }}</p>
+      <ul>
+        <p></p>
 
-        <router-link to="/" custom v-slot="{ navigate }">
-          <li v-for="v in i.product" @click="navigate">
-            {{ v }}
-          </li>
-        </router-link>
+        <li></li>
       </ul>
     </div>
   </section>

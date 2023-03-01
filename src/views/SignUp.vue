@@ -287,20 +287,21 @@ const validate = (users: UserI) => {
           @focusin="selectedItem = index"
           @focusout="selectedItem = null"
           :name="i.name"
+          @change="validate(users)"
         />
       </label>
 
       <span>
         <TheButton
           title="Register"
-          :g="true"
+          :f="true"
           type="submit"
           :disabled="disabled == !disabled"
         />
         <TheButton
           title="Go Back"
-          :g="true"
-          @click.prevent="router.push({ path: '/' })"
+          :f="true"
+          @click.prevent="router.push({ path: '/restresource.ru' })"
         />
       </span>
     </form>

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import navigate from "../http/navigate.json";
 import TheButton from "./TheButton.vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 </script>
 
 <template>
@@ -11,16 +15,16 @@ import TheButton from "./TheButton.vue";
 
         <hr />
 
-        <TheButton title="Manage cookies" :f="true" />
+        <TheButton title="Manage cookies" :e="true" />
       </div>
 
       <div>
         <h3>NAVIGATE</h3>
 
         <ul v-for="i in navigate.Navigate">
-          <router-link to="/" custom v-slot="{ navigate }">
-            <li :click="navigate">{{ i }}</li>
-          </router-link>
+          <li @click.prevent="router.push({ path: '/restresource.ru' })">
+            {{ i }}
+          </li>
         </ul>
       </div>
 
@@ -28,11 +32,9 @@ import TheButton from "./TheButton.vue";
         <h3>INFORMATION</h3>
 
         <ul v-for="i in navigate.Information">
-          <router-link to="/" custom v-slot="{ navigate }">
-            <li :click="navigate">
-              {{ i }}
-            </li>
-          </router-link>
+          <li @click.prevent="router.push({ path: '/restresource.ru' })">
+            {{ i }}
+          </li>
         </ul>
       </div>
 

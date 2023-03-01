@@ -23,7 +23,7 @@ const ad = cards.cards.filter((i) => i.collection == props.collection);
   <section
     class="card"
     :class="{ grid: grid }"
-    @click="router.push({ path: `/${collection}` })"
+    @click="router.push({ path: `/restresource.ru/${collection}` })"
   >
     <div v-for="(card, index) in ad.slice(0, quant)">
       <picture>

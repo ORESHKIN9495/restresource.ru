@@ -2,14 +2,14 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
+    path: "/restresource.ru",
     name: "home",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/HomeView.vue"),
   },
 
   {
-    path: "/article",
+    path: "/restresource.ru/article",
     name: "article",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: "/recipe",
+    path: "/restresource.ru/recipe",
     name: "recipe",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: "/signin",
+    path: "/restresource.ru/signin",
     name: "signin",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -39,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   {
-    path: "/signup",
+    path: "/restresource.ru/signup",
     name: "signup",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
