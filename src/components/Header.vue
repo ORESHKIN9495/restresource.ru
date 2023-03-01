@@ -1,9 +1,19 @@
 <script setup lang="ts">
 import TheButton from "../components/TheButton.vue";
+import NavModal from "./NavModal.vue";
+import recipe from "../http/recipe/recipe.json";
+import cook from "../http/recipe/cook.json";
 
+import { ref } from "vue";
 import { useRouter } from "vue-router";
+import SearhModal from "./SearhModal.vue";
 
 const router = useRouter();
+
+const showModal = ref(false);
+const showSearch = ref(false);
+
+const product = ref();
 </script>
 
 <template>
@@ -70,8 +80,10 @@ const router = useRouter();
     </nav>
 
     <nav>
+      <NavModal v-if="showModal" :props="product" @close="showModal = false" />
+
       <ul>
-        <li>
+        <li @click="(showModal = !showModal), (product = recipe)">
           Рецепты
           <i class="icon-menu-down" />
         </li>
@@ -84,16 +96,23 @@ const router = useRouter();
           Информационная база
         </li>
 
-        <li>
+        <li @click="(showModal = !showModal), (product = cook)">
           Как готовить
           <i class="icon-menu-down" />
         </li>
       </ul>
 
       <form action="#">
-        <input type="text" placeholder="Найти" />
+        <input
+          type="text"
+          placeholder="Найти"
+          @focusin="showSearch = true"
+          @focusout="showSearch = false"
+        />
 
         <i class="icon-search-solid" />
+
+        <SearhModal v-if="showSearch" />
       </form>
     </nav>
   </header>
@@ -157,6 +176,7 @@ header {
       margin: 0 0 0 auto;
       max-width: 400px;
       width: 100%;
+      position: relative;
 
       input {
         color: #000;
