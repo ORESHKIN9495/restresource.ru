@@ -34,6 +34,7 @@ section {
   }
 
   p {
+    color: var(--scheme-v2);
     padding: 20px;
     text-align: left;
   }

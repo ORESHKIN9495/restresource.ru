@@ -43,13 +43,17 @@ onMounted(() => {
 
 <style scoped lang="scss">
 section {
-  border: 1px solid #ccc;
+  border: 1px solid var(--scheme-v3);
   display: grid;
   flex: 100%;
   gap: 40px;
   height: 100%;
   padding: 20px;
   text-align: left;
+
+  h2 {
+    color: var(--scheme-v2);
+  }
 
   h3 {
     color: #47af9d;
@@ -61,7 +65,7 @@ section {
     gap: 20px;
 
     ul {
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--scheme-v3);
       display: grid;
       gap: 20px;
       padding: 0 0 20px;
@@ -73,9 +77,9 @@ section {
     }
 
     button {
-      border: 1px solid #ccc;
-      background: #fff;
-      color: #ccc;
+      border: 1px solid var(--scheme-v3);
+      background: var(--scheme-v1);
+      color: var(--scheme-v3);
       cursor: pointer;
       font-weight: 400;
       padding: 20px;

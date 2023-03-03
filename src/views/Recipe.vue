@@ -103,7 +103,12 @@ onMounted(() => {
     width: 100%;
 
     h1 {
+      color: var(--scheme-v2);
       font-size: 30px;
+    }
+
+    p {
+      color: var(--scheme-v2);
     }
 
     &:nth-child(2) {
@@ -135,8 +140,8 @@ onMounted(() => {
     &:nth-child(3) {
       display: grid;
       background: #f9f9f9;
-      border-bottom: 1px solid #ccc;
-      border-top: 1px solid #ccc;
+      border-bottom: 1px solid var(--scheme-v3);
+      border-top: 1px solid var(--scheme-v3);
       text-align: left;
       max-width: 100%;
       padding: 40px 0;
@@ -151,12 +156,13 @@ onMounted(() => {
       }
 
       button {
-        background: #fff;
-        border: 1px solid #ccc;
-        color: #000;
+        background: var(--scheme-v1);
+        border: 1px solid var(--scheme-v3);
+        color: var(--scheme-v2);
         cursor: pointer;
         display: flex;
         gap: 20px;
+        justify-content: center;
         padding: 10px;
         position: absolute;
         top: -15px;

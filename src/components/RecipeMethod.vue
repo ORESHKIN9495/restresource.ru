@@ -35,10 +35,15 @@ onMounted(() => {
   text-align: left;
 
   h2 {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--scheme-v3);
+    color: var(--scheme-v2);
     font-size: 20px;
     font-weight: 400;
     padding: 0 0 20px;
+  }
+
+  p {
+    color: var(--scheme-v2);
   }
 
   div {
@@ -54,7 +59,7 @@ onMounted(() => {
   }
 
   ul {
-    border: 1px solid #ccc;
+    border: 1px solid var(--scheme-v3);
     display: grid;
     gap: 10px;
     padding: 20px;

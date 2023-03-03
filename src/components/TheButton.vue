@@ -2,7 +2,7 @@
 import { defineProps } from "vue";
 
 interface Button {
-  title: String;
+  title?: String;
   a?: Boolean;
   b?: Boolean;
   c?: Boolean;
@@ -37,7 +37,7 @@ defineProps<Button>();
 <style scoped lang="scss">
 button {
   &.a {
-    background: #000;
+    background: var(--scheme-v2);
     padding: 0;
     max-width: 200px;
 
@@ -57,12 +57,12 @@ button {
   }
 
   &.c {
-    background: #ccc;
+    background: var(--scheme-v3);
     max-width: 280px;
   }
 
   &.d {
-    border: 1px solid #fff;
+    border: 1px solid var(--scheme-v1);
     max-width: 280px;
 
     @media only screen and (max-width: 1080px) {
@@ -70,12 +70,12 @@ button {
     }
   }
   &.e {
-    border: 1px solid #595959;
+    border: 1px solid var(--scheme-v6);
     text-transform: uppercase;
   }
 
   &.f {
-    background: #ccc;
+    background: var(--scheme-v3);
     text-transform: uppercase;
   }
 }

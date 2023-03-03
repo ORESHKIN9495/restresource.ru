@@ -14,7 +14,7 @@ import TheButton from "./TheButton.vue";
 
       <p>Новости за неделю на Ресторанном</p>
 
-      <TheButton title="" :c="true" />
+      <TheButton :c="true" />
     </div>
   </section>
 </template>

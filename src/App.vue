@@ -14,6 +14,21 @@ import Footer from "./components/Footer.vue";
 </template>
 
 <style lang="scss">
+:root {
+  // scheme color
+
+  --scheme-v1: #fff;
+  --scheme-v2: #000;
+  --scheme-v3: #ccc;
+  --scheme-v4: #3d3d3d;
+  --scheme-v5: #5b5b5b;
+  --scheme-v6: #595959;
+
+  // scheme gap
+
+  --scheme-gap: 40px;
+}
+
 @font-face {
   font-display: auto;
   font-family: "Iconly";
@@ -31,7 +46,7 @@ import Footer from "./components/Footer.vue";
 [class="icon"],
 [class^="icon-"],
 [class*=" icon-"] {
-  color: #000;
+  color: var(--scheme-v2);
   display: inline-block;
   font-family: "Iconly" !important;
   font-weight: 400;
@@ -66,18 +81,18 @@ import Footer from "./components/Footer.vue";
 
 * {
   box-sizing: border-box;
-  color: #fff;
-  font: 300 16px / 1.42 Helvetica;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #fff;
+  background: var(--scheme-v1);
+  color: var(--scheme-v1);
+  font: 300 16px / 1.42 Helvetica;
 }
 
 a {
-  color: #000;
+  color: var(--scheme-v2);
   font-weight: 400;
   text-decoration: none;
 }
@@ -85,7 +100,7 @@ a {
 h1,
 h2,
 h3 {
-  color: #000;
+  color: inherit;
   font-weight: 300;
   line-height: 1;
 }
@@ -99,14 +114,14 @@ h3 {
 }
 
 p {
-  color: #000;
+  color: var(--scheve-v5);
 }
 
 ul {
   list-style: none;
 
   li {
-    color: #000;
+    color: var(--scheme-v2);
     cursor: pointer;
   }
 }
@@ -147,6 +162,7 @@ button {
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--scheme-v1);
   outline: none;
   padding: 10px 40px;
   width: 100%;

@@ -54,12 +54,17 @@ import article from "../http/article/article.json";
 
   h1,
   h2 {
+    color: var(--scheme-v2);
     font-size: 30px;
     text-align: center;
   }
 
+  p {
+    color: var(--scheme-v2);
+  }
+
   picture {
-    background: #ccc;
+    background: var(--scheme-v3);
     padding: 200px;
   }
 
@@ -87,13 +92,13 @@ import article from "../http/article/article.json";
         }
 
         h3 {
-          color: #545454;
+          color: var(--scheme-v3);
         }
 
         p:not(:last-child) {
-          border-top: 1px solid #ccc;
-          border-bottom: 1px solid #ccc;
-          color: rgb(114, 114, 114);
+          border-top: 1px solid var(--scheme-v3);
+          border-bottom: 1px solid var(--scheme-v3);
+          color: var(--scheme-v3);
           padding: 20px 0;
         }
       }

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import TheButton from "../components/TheButton.vue";
-import NavModal from "./NavModal.vue";
-import recipe from "../http/recipe/recipe.json";
-import cook from "../http/recipe/cook.json";
-
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+
+import TheButton from "../components/TheButton.vue";
+import NavModal from "./NavModal.vue";
 import SearhModal from "./SearhModal.vue";
+
+import recipe from "../http/recipe/recipe.json";
+import cook from "../http/recipe/cook.json";
 
 const router = useRouter();
 
@@ -61,8 +62,8 @@ const product = ref();
 
         |
 
-        <li @click="router.push({ path: '/restresource.ru' })">
-          От рецепта до проекта
+        <li>
+          <router-link to="/restresource.ru" :text="`От рецепта до проекта`" />
         </li>
       </ul>
 
@@ -70,11 +71,14 @@ const product = ref();
       <TheButton title="Обучение" :b="true" />
 
       <ul>
-        <li @click="router.push({ path: '/restresource.ru/signin' })">Войти</li>
+        <li>
+          <router-link to="/restresource.ru/signin" :text="`Войти`" />
+        </li>
+
         |
 
-        <li @click="router.push({ path: '/restresource.ru/signup' })">
-          Регистрация
+        <li>
+          <router-link to="/restresource.ru/signup" :text="`Регистрация`" />
         </li>
       </ul>
     </nav>
@@ -88,12 +92,12 @@ const product = ref();
           <i class="icon-menu-down" />
         </li>
 
-        <li @click="router.push({ path: '/restresource.ru' })">
-          Готовые решения
+        <li>
+          <router-link to="/restresource.ru" :text="`Готовые решения`" />
         </li>
 
-        <li @click="router.push({ path: '/restresource.ru' })">
-          Информационная база
+        <li>
+          <router-link to="/restresource.ru" :text="` Информационная база`" />
         </li>
 
         <li @click="(showModal = !showModal), (product = cook)">
@@ -120,8 +124,8 @@ const product = ref();
 
 <style scoped lang="scss">
 header {
-  background: #fff;
-  border-bottom: 8px solid rgb(124, 124, 124);
+  background: var(--scheme-v1);
+  border-bottom: 8px solid var(--scheme-v6);
   display: grid;
   grid-template: 1fr 1fr / 300px 1fr;
   position: fixed;
@@ -137,7 +141,7 @@ header {
   }
 
   nav {
-    background: #404040;
+    background: var(--scheme-v4);
     display: flex;
     white-space: nowrap;
 
@@ -148,8 +152,11 @@ header {
       padding: 0 20px;
 
       li {
-        color: #fff;
         font-weight: 400;
+
+        a {
+          color: var(--scheme-v1);
+        }
 
         i {
           font-size: 16px;
@@ -162,10 +169,14 @@ header {
     }
 
     &:last-child {
-      background: #fff;
+      background: var(--scheme-v1);
 
       li {
-        color: #000;
+        a {
+          &:last-child {
+            color: var(--scheme-v2);
+          }
+        }
       }
     }
 
