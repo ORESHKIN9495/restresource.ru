@@ -100,7 +100,7 @@ a {
 h1,
 h2,
 h3 {
-  color: inherit;
+  color: var(--scheme-v2);
   font-weight: 300;
   line-height: 1;
 }
@@ -142,8 +142,8 @@ main {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 20px;
 }
 
 img {

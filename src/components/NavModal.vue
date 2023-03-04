@@ -52,11 +52,12 @@ section {
     gap: 5px;
 
     &:nth-child(-n + 5) {
-      border-bottom: 1px solid #c1c0c1;
+      border-bottom: 1px solid var(--scheme-v3);
       padding-bottom: 40px;
     }
 
     p {
+      color: var(--scheme-v2);
       font-weight: 400;
       margin-bottom: 10px;
     }

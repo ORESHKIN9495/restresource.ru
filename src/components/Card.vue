@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps } from "vue";
+import { defineProps, ref } from "vue";
 
 import { useRouter } from "vue-router";
 
@@ -8,10 +8,10 @@ import cards from "../http/cards.json";
 const router = useRouter();
 
 interface Recipe {
-  filled?: Boolean;
-  grid?: Boolean;
-  quant?: any;
-  collection?: String;
+  filled?: boolean;
+  grid?: boolean;
+  quant?: number;
+  collection?: string;
 }
 
 const props = defineProps<Recipe>();

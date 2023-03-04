@@ -173,16 +173,14 @@ header {
 
       li {
         a {
-          &:last-child {
-            color: var(--scheme-v2);
-          }
+          color: var(--scheme-v2);
         }
       }
     }
 
     form {
       align-items: center;
-      border-left: 1.5px solid #efefef;
+      border-left: 1.5px solid var(--scheme-v3);
       display: flex;
       margin: 0 0 0 auto;
       max-width: 400px;
@@ -190,13 +188,13 @@ header {
       position: relative;
 
       input {
-        color: #000;
+        color: var(--scheme-v2);
         padding: 0 20px;
         width: 100%;
       }
 
       .icon-search-solid {
-        color: #9a9a9a;
+        color: var(--scheme-v3);
       }
 
       @media only screen and (max-width: 1240px) {

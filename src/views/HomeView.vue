@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import HomeNav from "../components/HomeNav.vue";
 import Hero from "../components/Hero.vue";
-import Card from "../components/Card.vue";
+import ArticleCardContainerH from "../components/ArticleCardContainerH.vue";
+import ArticleCardContainer from "../components/ArticleCardContainer.vue";
 import Signature from "../components/Signature.vue";
 import LoadMore from "../components/LoadMore.vue";
 </script>
@@ -9,67 +10,44 @@ import LoadMore from "../components/LoadMore.vue";
 <template>
   <Hero />
 
-  <section class="home">
-    <div class="home__nav">
+  <section class="main">
+    <div>
       <HomeNav />
 
-      <div class="home__grid">
-        <h2>I feel it in my fingers</h2>
-
-        <Card :filled="true" :grid="true" :quant="3" collection="article" />
+      <div class="container">
+        <ArticleCardContainer />
       </div>
     </div>
 
-    <div class="home__row">
-      <h2>Heart-y plates</h2>
-
-      <Card :filled="false" :quant="5" collection="recipe" />
+    <div class="container">
+      <ArticleCardContainerH />
     </div>
 
-    <div class="home__row">
-      <Signature />
+    <Signature />
+
+    <div class="container">
+      <ArticleCardContainer />
     </div>
 
-    <div class="home__grid">
-      <h2>The bright shades of winter</h2>
-
-      <Card :filled="true" :grid="true" :quant="3" collection="article" />
-    </div>
-
-    <div class="home__row">
-      <LoadMore />
-    </div>
+    <LoadMore />
   </section>
 </template>
 
 <style scoped lang="scss">
-.home {
-  display: flex;
-  flex-direction: column;
+.main {
+  display: grid;
   gap: 80px;
+  margin: auto;
   max-width: 1360px;
-  margin: 0 auto;
-  padding: 40px 0;
 
   div {
     display: flex;
     gap: 20px;
   }
 
-  &__nav {
-    gap: 40px !important;
-
-    @media only screen and (max-width: 860px) {
-      flex-wrap: wrap;
-    }
-  }
-
-  &__grid {
-    flex-direction: column;
-  }
-
-  &__row {
-    flex-direction: column;
+  .container {
+    display: grid;
+    gap: 20px;
   }
 }
 </style>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ArticleCard from "./ArticleCard.vue";
 import Card from "../components/Card.vue";
 </script>
 
@@ -7,10 +8,23 @@ import Card from "../components/Card.vue";
     <h2>Latest from Great British Chefs</h2>
 
     <div>
-      <Card :filled="false" :quant="3" collection="recipe" />
-      <Card :filled="false" :quant="2" collection="recipe" />
-      <Card :filled="false" :quant="3" collection="recipe" />
+      <ArticleCard />
+      <ArticleCard />
+      <ArticleCard />
     </div>
+
+    <div>
+      <ArticleCard />
+      <ArticleCard />
+    </div>
+
+    <div>
+      <ArticleCard />
+      <ArticleCard />
+      <ArticleCard />
+    </div>
+
+    <button>LOAD MORE</button>
   </section>
 </template>
 
@@ -22,8 +36,12 @@ import Card from "../components/Card.vue";
 
   div {
     display: flex;
-    flex-direction: column;
     gap: 20px;
+  }
+
+  button {
+    font-size: 28px;
+    color: var(--scheme-v2);
   }
 }
 </style>
