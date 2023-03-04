@@ -163,6 +163,7 @@ onMounted(() => {
         display: flex;
         gap: 20px;
         justify-content: center;
+        max-width: 200px;
         padding: 10px;
         position: absolute;
         top: -15px;

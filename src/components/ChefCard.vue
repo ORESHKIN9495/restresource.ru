@@ -2,9 +2,11 @@
 
 <template>
   <section>
-    <img
-      src="https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_360x175q90fpt215fpl500.jpg"
-    />
+    <picture>
+      <img
+        src="https://media-cdn.greatbritishchefs.com/media/jyrne5a3/img19417.whqc_360x175q90fpt215fpl500.jpg"
+      />
+    </picture>
 
     <span>
       <router-link to="#">Graham Hornigold</router-link>
@@ -23,12 +25,12 @@
 
 <style scoped lang="scss">
 section {
-  border: 1px solid #ccc;
+  border: 1px solid var(--scheme-v3);
   flex: 100%;
-  height: 100%;
+  height: fit-content;
 
   span {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--scheme-v3);
     display: block;
     padding: 20px;
   }
@@ -37,6 +39,12 @@ section {
     color: var(--scheme-v2);
     padding: 20px;
     text-align: left;
+  }
+
+  picture {
+    img {
+      height: auto;
+    }
   }
 }
 </style>

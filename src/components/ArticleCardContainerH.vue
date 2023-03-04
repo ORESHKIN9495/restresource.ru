@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import ArticleCard from "./ArticleCard.vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 </script>
 
 <template>
   <h2>Pretty in pink</h2>
 
   <section>
-    <ArticleCard />
+    <ArticleCard @click="router.push({ path: '/restresource.ru/recipe' })" />
     <ArticleCard />
     <ArticleCard />
     <ArticleCard />

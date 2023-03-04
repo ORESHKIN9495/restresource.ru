@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import ArticleCard from "./ArticleCard.vue";
+
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 </script>
 
 <template>
   <h2>The bright shades of winter</h2>
 
   <section>
-    <ArticleCard anotation />
+    <ArticleCard
+      anotation
+      @click="router.push({ path: '/restresource.ru/article' })"
+    />
     <ArticleCard />
     <ArticleCard />
   </section>
