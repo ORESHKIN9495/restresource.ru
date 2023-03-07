@@ -15,27 +15,27 @@ onMounted(() => {
 
 <template>
   <section>
-    <h2>Ingredients</h2>
+    <h2 v-text="`Ingredients`" />
 
     <div v-for="items in data">
       <ul v-for="i in items.components">
-        <h3>{{ i.title }}</h3>
+        <h3 v-text="i.title" />
 
         <li v-for="v in i.components">{{ v.weight }} {{ v.title }}</li>
       </ul>
     </div>
 
     <div>
-      <button>SAVE RECIPE</button>
-      <button>PRINT RECIPE</button>
-      <button>SHOPPING LIST</button>
+      <button v-text="`SAVE RECIPE`" />
+      <button v-text="`PRINT RECIPE`" />
+      <button v-text="`SHOPPING LIST`" />
     </div>
 
     <div class="equip" v-for="item in data">
-      <h2>Equipment</h2>
+      <h2 v-text="`Equipment`" />
 
       <ul>
-        <li v-for="i in item.components">{{ i.title }}</li>
+        <li v-for="i in item.components" v-text="i.title" />
       </ul>
     </div>
   </section>
@@ -47,7 +47,7 @@ section {
   display: grid;
   flex: 100%;
   gap: 40px;
-  height: 100%;
+  height: fit-content;
   padding: 20px;
   text-align: left;
 

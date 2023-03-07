@@ -2,13 +2,13 @@
 import { defineProps } from "vue";
 
 interface Button {
-  title?: String;
-  a?: Boolean;
-  b?: Boolean;
-  c?: Boolean;
-  d?: Boolean;
-  e?: Boolean;
-  f?: Boolean;
+  title?: string;
+  a?: boolean;
+  b?: boolean;
+  c?: boolean;
+  d?: boolean;
+  e?: boolean;
+  f?: boolean;
 }
 
 defineProps<Button>();
@@ -16,14 +16,13 @@ defineProps<Button>();
 
 <template>
   <button :class="{ a: a, b: b, c: c, d: d, e: e, f: f }">
+    {{ title }}
     <svg v-if="b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.696 15.74">
       <path
         fill="#fff"
         d="M35.321.499a.671.671 0 0 0-.906-.44l-9.509 3.958-8.377 3.517c-5.66 2.2-12 5.276-12 5.276A13.857 13.857 0 0 0 0 15.669c2.491.44 9.057-1.319 9.057-1.319 3.623-1.1 16.3-5.716 16.3-5.716a.3.3 0 0 0 0-.44 2.085 2.085 0 0 1 .226-2.858 5.561 5.561 0 0 1 2.038-.22s3.4-.22 5.208-1.979c0 0 .679-.66 1.132-.66a.48.48 0 0 1 .453.44s0 .22.226 0 .679-.44.906-.879a1.356 1.356 0 0 0-.225-1.539"
       />
     </svg>
-
-    {{ title }}
 
     <svg v-if="c" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
       <path

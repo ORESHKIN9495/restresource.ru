@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
-import Card from "../components/Card.vue";
+
+import ArticleCard from "../components/ArticleCard.vue";
 import Ingredients from "../components/Ingredients.vue";
 import RecipeMethod from "../components/RecipeMethod.vue";
 import ChefCard from "../components/ChefCard.vue";
@@ -19,36 +20,30 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="recipe" v-for="item in data">
+  <section v-for="item in data">
     <div>
-      <h1>{{ item.title }}</h1>
+      <h1 v-text="item.title" />
 
-      <p>
-        by <router-link to="#">{{ item.author }}</router-link>
-      </p>
+      <p>by <router-link to="#" v-text="item.author" /></p>
     </div>
 
     <div>
       <picture>
-        <img
-          src="https://media-cdn.greatbritishchefs.com/media/iqfk1rhy/img22457.whqc_768x512q90.jpg"
-          fetchpriority="high"
-          data-v-4722e620="" />
-        <div></div
-      ></picture>
+        <img src="../assets/image/ben-koorengevel-Vd0_Htlb-Kk-unsplash.jpg" />
+      </picture>
 
       <article>
         <span>
-          <p>Petit four</p>
-          <p>challenging</p>
-          <p>{{ item.views }}</p>
+          <p v-text="`Petit four`" />
+          <p v-text="`challenging`" />
+          <p v-text="item.views" />
         </span>
 
-        <p>{{ item.time }}</p>
+        <p v-text="item.time" />
 
-        <p>{{ item.description }}</p>
+        <p v-text="item.description" />
 
-        <p>First published in 2015</p>
+        <p v-text="`First published in 2015`" />
       </article>
     </div>
 
@@ -76,9 +71,13 @@ onMounted(() => {
         </svg>
       </button>
 
-      <span v-if="change">
-        <Card :quant="5" collection="recipe" />
-      </span>
+      <div v-if="change">
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+      </div>
     </div>
 
     <div>
@@ -90,17 +89,16 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.recipe {
+section {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 150px 0;
+  margin: 20px 0;
 
   div {
     margin: 0 auto;
     max-width: 1360px;
     text-align: center;
-    width: 100%;
 
     h1 {
       color: var(--scheme-v2);
@@ -138,24 +136,18 @@ onMounted(() => {
     }
 
     &:nth-child(3) {
-      display: grid;
+      display: flex;
       background: #f9f9f9;
       border-bottom: 1px solid var(--scheme-v3);
       border-top: 1px solid var(--scheme-v3);
-      text-align: left;
+      justify-content: center;
       max-width: 100%;
       padding: 40px 0;
       position: relative;
-      justify-items: center;
-
-      span {
-        display: block;
-        max-width: 1360px;
-        margin: 0 auto;
-        width: 100%;
-      }
+      width: 100%;
 
       button {
+        align-items: center;
         background: var(--scheme-v1);
         border: 1px solid var(--scheme-v3);
         color: var(--scheme-v2);
@@ -163,8 +155,7 @@ onMounted(() => {
         display: flex;
         gap: 20px;
         justify-content: center;
-        max-width: 200px;
-        padding: 10px;
+        max-width: 280px;
         position: absolute;
         top: -15px;
       }

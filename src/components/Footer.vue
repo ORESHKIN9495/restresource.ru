@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import navigate from "../http/navigate.json";
 import TheButton from "./TheButton.vue";
-
-import { useRouter } from "vue-router";
-
-const router = useRouter();
 </script>
 
 <template>
   <footer>
     <section>
       <div>
-        <p>© 2023</p>
+        <p v-text="`© 2023`" />
 
         <TheButton title="Manage cookies" :e="true" />
       </div>
 
       <div>
-        <h3>NAVIGATE</h3>
+        <h3 v-text="`NAVIGATE`" />
 
         <ul v-for="i in navigate.Navigate">
           <li>
@@ -27,7 +23,7 @@ const router = useRouter();
       </div>
 
       <div>
-        <h3>INFORMATION</h3>
+        <h3 v-text="`INFORMATION`" />
 
         <ul v-for="i in navigate.Information">
           <li>
@@ -85,6 +81,7 @@ footer {
       p {
         color: var(--scheme-v6);
         border-bottom: 1px solid var(--scheme-v6);
+        padding-bottom: 20px;
       }
 
       ul {

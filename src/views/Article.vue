@@ -1,60 +1,52 @@
 <script setup lang="ts">
-import Card from "../components/Card.vue";
+import ArticleCard from "../components/ArticleCard.vue";
 import article from "../http/article/article.json";
 </script>
 
 <template>
-  <section class="article" v-for="item in article">
-    <h1>{{ item.title }}</h1>
+  <section v-for="item in article">
+    <h1 v-text="item.title" />
 
-    <picture></picture>
+    <div></div>
 
-    <h2>{{ item.title }}</h2>
-
-    <span class="descr">
-      <p>
-        {{ item.description }}
-      </p>
+    <span>
+      <p v-text="item.description" />
     </span>
 
     <div>
       <article>
-        <span>
-          <h3>Social Media</h3>
+        <h3 v-text="`Social Media`" />
 
-          <p>{{ item.social }}</p>
+        <p v-text="item.social" />
 
-          <p>See all Ramael's recipes</p>
-        </span>
-
-        <p>
-          {{ item.article.first }}
-        </p>
+        <p v-text="`See all Ramael's recipes`" />
       </article>
 
-      <Card :quant="2" collection="article" />
+      <p v-text="item.article.first" />
+    </div>
 
-      <article>
-        <p>
-          {{ item.article.last }}
-        </p>
-      </article>
+    <div>
+      <ArticleCard />
 
-      <p>You may also like</p>
+      <ArticleCard />
+    </div>
+
+    <div>
+      <p v-text="item.article.last" />
+
+      <p v-text="`You may also like`" />
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
-.article {
+section {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin: 150px 0;
+  margin: 20px 0;
 
-  h1,
-  h2 {
-    color: var(--scheme-v2);
+  h1 {
     font-size: 30px;
     text-align: center;
   }
@@ -64,8 +56,18 @@ import article from "../http/article/article.json";
   }
 
   picture {
-    background: var(--scheme-v3);
-    padding: 200px;
+    height: 600px;
+  }
+
+  span {
+    border-bottom: 1px solid #ccc;
+
+    p {
+      margin: auto;
+      max-width: 1200px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
   }
 
   div {
@@ -75,48 +77,47 @@ import article from "../http/article/article.json";
     margin: 20px auto;
     max-width: 1360px;
 
-    article {
+    &:nth-child(2) {
+      background-image: url("../assets/image/ca-creative-uaMwBQ_wjng-unsplash.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 600px;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &:nth-child(4) {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+
+      @media only screen and (max-width: 790px) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &:nth-child(5) {
       display: flex;
-      gap: 40px;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
 
-      span {
-        display: flex;
+      @media only screen and (max-width: 790px) {
         flex-direction: column;
-        gap: 20px;
-        flex: 0 0 20%;
-
-        @media only screen and (max-width: 780px) {
-          & {
-            display: none;
-          }
-        }
-
-        h3 {
-          color: var(--scheme-v3);
-        }
-
-        p:not(:last-child) {
-          border-top: 1px solid var(--scheme-v3);
-          border-bottom: 1px solid var(--scheme-v3);
-          color: var(--scheme-v3);
-          padding: 20px 0;
-        }
       }
     }
   }
-}
 
-.descr {
-  border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
+  article {
+    display: grid;
+    gap: 20px;
+    height: fit-content;
 
-  p {
-    color: #545454;
-    font-style: italic;
-    font-weight: 400;
-    max-width: 800px;
-    margin: 20px auto;
-    text-align: center;
+    h3 {
+      border-bottom: 1px solid var(--scheme-v3);
+      color: var(--scheme-v3);
+      padding-bottom: 20px;
+    }
   }
 }
 </style>

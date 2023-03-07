@@ -8,18 +8,13 @@
       />
     </picture>
 
-    <span>
-      <router-link to="#">Graham Hornigold</router-link>
-    </span>
+    <router-link to="#" :text="`Graham Hornigold`" />
 
-    <p>
-      Graham Hornigold’s expert pastry skills have been refined in some of the
-      best restaurants and hotels in London, effortlessly adding delicate,
-      refreshing touches to dessert menus. Previously group pastry chef at
-      Hakkasan Group, he now travels the world with his pastry consultancy
-      business Smart Patisserie (as well as producing the best doughnuts you've
-      ever tasted under the Longboys brand).
-    </p>
+    <p
+      v-text="
+        `Graham Hornigold’s expert pastry skills have been refined in some of the best restaurants and hotels in London, effortlessly adding delicate, refreshing touches to dessert menus. Previously group pastry chef at Hakkasan Group, he now travels the world with his pastry consultancy business Smart Patisserie (as well as producing the best doughnuts you've ever tasted under the Longboys brand.`
+      "
+    />
   </section>
 </template>
 
@@ -29,7 +24,7 @@ section {
   flex: 100%;
   height: fit-content;
 
-  span {
+  a {
     border-bottom: 1px solid var(--scheme-v3);
     display: block;
     padding: 20px;

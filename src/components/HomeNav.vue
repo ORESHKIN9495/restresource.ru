@@ -2,13 +2,13 @@
 
 <template>
   <nav>
-    <h3>Recommended this week on Great British Chefs</h3>
+    <h3 v-text="`Recommended this week on Great British Chefs`" />
 
     <ul>
-      <li>Northern Italian cooking</li>
-      <li>The Signature Series</li>
-      <li>Oven-ready</li>
-      <li>Dumpling delights</li>
+      <li v-text="`Northern Italian cooking`" />
+      <li v-text="`The Signature Series`" />
+      <li v-text="`Oven-ready`" />
+      <li v-text="`Dumpling delights`" />
     </ul>
   </nav>
 </template>

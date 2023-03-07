@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   anotation: {
     type: Boolean,
   },
@@ -10,7 +10,7 @@ const props = defineProps({
   <article>
     <picture>
       <img
-        srcset="https://via.placeholder.com/640x360"
+        src="../assets/image/ben-koorengevel-Vd0_Htlb-Kk-unsplash.jpg"
         alt="a duck is swimming in a pond with ice"
       />
 
@@ -21,16 +21,16 @@ const props = defineProps({
       </span>
     </picture>
 
-    <h3>Venetian</h3>
+    <h3 v-text="`Venetian`" />
 
-    <p>Recipe collection</p>
+    <p v-text="`Recipe collection`" />
 
-    <p v-if="anotation">
-      Italian food varies greatly depending on what part of the country youre
-      in. Get to know more about the northern parts of Italy – from the jagged
-      mountains of the Dolomites to the beautiful coastline of Liguria – and try
-      recreating the dishes that make them culinary hotspots.
-    </p>
+    <p
+      v-if="anotation"
+      v-text="
+        `  Italian food varies greatly depending on what part of the country youre in. Get to know more about the northern parts of Italy – from the jagged mountains of the Dolomites to the beautiful coastline of Liguria – and try recreating the dishes that make them culinary hotspots.`
+      "
+    />
   </article>
 </template>
 
@@ -48,7 +48,6 @@ article {
   }
 
   picture {
-    height: 100%;
     position: relative;
     transition: 0.3s ease-in-out;
 

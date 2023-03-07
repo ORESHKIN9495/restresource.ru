@@ -7,9 +7,9 @@ const product = ref(cook.Мясо.product);
 <template>
   <section class="popular">
     <ul>
-      <h3>POPULAR</h3>
+      <h3 v-text="`POPULAR`" />
 
-      <li v-for="i in product">{{ i }}</li>
+      <li v-for="i in product" v-text="i" />
     </ul>
   </section>
 </template>

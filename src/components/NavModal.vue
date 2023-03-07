@@ -16,12 +16,10 @@ defineProps<Change>();
 
     <div>
       <ul v-for="(i, index) in props">
-        <p>{{ index }}</p>
+        <p v-text="index" />
 
         <router-link to="/restresource.ru" custom v-slot="{ navigate }">
-          <li v-for="v in i.product" @click="navigate">
-            {{ v }}
-          </li>
+          <li v-for="v in i.product" @click="navigate" v-text="v" />
         </router-link>
       </ul>
     </div>

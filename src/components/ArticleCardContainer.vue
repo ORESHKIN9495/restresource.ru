@@ -8,7 +8,7 @@ const router = useRouter();
 
 <template>
   <section>
-    <h2>The bright shades of winter</h2>
+    <h2 v-text="`The bright shades of winter`" />
 
     <div>
       <ArticleCard

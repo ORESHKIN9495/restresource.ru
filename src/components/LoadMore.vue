@@ -8,7 +8,7 @@ const more = ref(false);
 
 <template>
   <section class="latest">
-    <h2>Latest from Great British Chefs</h2>
+    <h2 v-text="`Latest from Great British Chefs`" />
 
     <div>
       <ArticleCard />
@@ -40,7 +40,7 @@ const more = ref(false);
       </div>
     </span>
 
-    <button @click="more = true">LOAD MORE...</button>
+    <button @click="more = true" v-text="`LOAD MORE...`" />
   </section>
 </template>
 

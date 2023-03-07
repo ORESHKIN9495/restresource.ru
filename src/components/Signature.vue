@@ -5,22 +5,21 @@ import TheButton from "./TheButton.vue";
 <template>
   <section>
     <div>
-      <p>
-        Have you taken a look at our Signature Series yet? Every Friday we
-        release a brand new masterclass from one of our chefs, where they'll
-        show you how to recreate their favourite dishes at home – exclusively
-        for Great British Chefs Club members.
-      </p>
+      <p
+        v-text="
+          `Have you taken a look at our Signature Series yet? Every Friday we release a brand new masterclass from one of our chefs, where they'll show you how to recreate their favourite dishes at home – exclusively for Great British Chefs Club member`
+        "
+      />
 
       <TheButton title="Watch now" :d="true" />
     </div>
 
     <div>
-      <h2>Latest recipe videos</h2>
+      <h2 v-text="`Latest recipe videos`" />
 
-      <p>Robert Chambers' Sheep's Milk Ricotta Tortellini</p>
+      <p v-text="`Robert Chambers' Sheep's Milk Ricotta Tortellini`" />
 
-      <p>Budgie Montoya's Lechon Belly</p>
+      <p v-text="`Budgie Montoya's Lechon Belly`" />
     </div>
   </section>
 </template>

@@ -14,12 +14,12 @@ onMounted(() => {
 
 <template>
   <section class="method" v-for="items in data">
-    <h2>Method</h2>
+    <h2 v-text="`Method`" />
 
     <div v-for="(item, index) in items.steps">
-      <span>{{ index + 1 }}</span>
+      <span v-text="index + 1" />
 
-      <p>{{ item.description }}</p>
+      <p v-text="item.description" />
 
       <ul>
         <li v-for="i in item.components">{{ i.weight }} {{ i.title }}</li>

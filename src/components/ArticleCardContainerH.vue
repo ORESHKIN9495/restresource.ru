@@ -8,7 +8,7 @@ const router = useRouter();
 
 <template>
   <section>
-    <h2>Pretty in pink</h2>
+    <h2 v-text="`Pretty in pink`" />
 
     <div>
       <ArticleCard @click="router.push({ path: '/restresource.ru/recipe' })" />
