@@ -87,7 +87,7 @@ const product = ref();
       <NavModal v-if="showModal" :props="product" @close="showModal = false" />
 
       <ul>
-        <li @click="(showModal = !showModal), (product = recipe)">
+        <li ref="a" @click="(showModal = !showModal), (product = recipe)">
           Рецепты
           <i class="icon-menu-down" />
         </li>
@@ -128,9 +128,10 @@ header {
   border-bottom: 8px solid var(--scheme-v6);
   display: grid;
   grid-template: 1fr 1fr / 300px 1fr;
-  position: fixed;
+  position: sticky;
+  top: 0;
   width: 100%;
-  z-index: 99;
+  z-index: 999;
 
   svg {
     align-self: center;

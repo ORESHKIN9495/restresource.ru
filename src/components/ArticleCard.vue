@@ -15,7 +15,9 @@ const props = defineProps({
       />
 
       <span class="overlay">
-        <i class="icon-suit-heart" /> <i class="icon-menu" />
+        <i class="icon-suit-heart" />
+
+        <i class="icon-menu" />
       </span>
     </picture>
 

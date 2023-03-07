@@ -7,27 +7,40 @@ const router = useRouter();
 </script>
 
 <template>
-  <h2>The bright shades of winter</h2>
-
   <section>
-    <ArticleCard
-      anotation
-      @click="router.push({ path: '/restresource.ru/article' })"
-    />
-    <ArticleCard />
-    <ArticleCard />
+    <h2>The bright shades of winter</h2>
+
+    <div>
+      <ArticleCard
+        anotation
+        @click="router.push({ path: '/restresource.ru/article' })"
+      />
+      <ArticleCard />
+      <ArticleCard />
+    </div>
   </section>
 </template>
 
 <style lang="scss" scoped>
 section {
   display: grid;
-  gap: 40px;
-  grid-template: auto / 1fr 400px;
+  gap: 20px;
 
-  article {
-    &:first-child {
-      grid-row: 1 / 3;
+  div {
+    display: grid;
+    gap: 20px;
+    grid-template: auto / 1fr 400px;
+
+    article {
+      &:first-child {
+        grid-row: span 2;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 770px) {
+    div {
+      grid-template-columns: 1fr;
     }
   }
 }

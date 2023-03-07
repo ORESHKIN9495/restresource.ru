@@ -15,10 +15,9 @@
 
 <style scoped lang="scss">
 nav {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 20px;
-  flex: 0 0 20%;
+  height: fit-content;
 
   h3 {
     border-bottom: 1px solid #ccc;
@@ -26,39 +25,30 @@ nav {
   }
 
   ul {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 10px;
   }
 
-  @media only screen and (max-width: 860px) {
-    & {
-      align-items: center;
-      flex-direction: row;
-      flex: 100%;
-      flex-wrap: wrap;
-      justify-content: center;
+  @media only screen and (max-width: 990px) {
+    h3 {
+      border: none;
+      padding: 0;
+      text-align: center;
+    }
 
-      h3 {
-        border: none;
-        padding: 0;
-      }
-
-      ul {
-        flex-direction: row;
-        justify-content: space-between;
-      }
+    ul {
+      display: flex;
+      justify-content: space-between;
     }
   }
 
-  @media only screen and (max-width: 860px) {
-    & {
-      align-items: flex-start;
-      flex-direction: column;
+  @media only screen and (max-width: 770px) {
+    h3 {
+      text-align: left;
+    }
 
-      ul {
-        flex-direction: column;
-      }
+    ul {
+      display: grid;
     }
   }
 }

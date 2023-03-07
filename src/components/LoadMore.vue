@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import ArticleCard from "./ArticleCard.vue";
-import Card from "../components/Card.vue";
+
+import { ref } from "vue";
+
+const more = ref(false);
 </script>
 
 <template>
@@ -24,15 +27,27 @@ import Card from "../components/Card.vue";
       <ArticleCard />
     </div>
 
-    <button>LOAD MORE</button>
+    <span v-if="more">
+      <div>
+        <ArticleCard />
+        <ArticleCard />
+      </div>
+
+      <div>
+        <ArticleCard />
+        <ArticleCard />
+        <ArticleCard />
+      </div>
+    </span>
+
+    <button @click="more = true">LOAD MORE...</button>
   </section>
 </template>
 
 <style scoped lang="scss">
 .latest {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  display: grid;
+  gap: 20px;
 
   div {
     display: flex;

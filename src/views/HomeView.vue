@@ -11,23 +11,17 @@ import LoadMore from "../components/LoadMore.vue";
   <Hero />
 
   <section class="main">
-    <div>
+    <div class="container">
       <HomeNav />
 
-      <div class="container">
-        <ArticleCardContainer />
-      </div>
+      <ArticleCardContainer />
     </div>
 
-    <div class="container">
-      <ArticleCardContainerH />
-    </div>
+    <ArticleCardContainerH />
 
     <Signature />
 
-    <div class="container">
-      <ArticleCardContainer />
-    </div>
+    <ArticleCardContainer />
 
     <LoadMore />
   </section>
@@ -39,15 +33,15 @@ import LoadMore from "../components/LoadMore.vue";
   gap: 80px;
   margin: auto;
   max-width: 1360px;
+}
 
-  div {
-    display: flex;
-    gap: 20px;
-  }
+.container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
 
-  .container {
-    display: grid;
-    gap: 20px;
+  @media only screen and (max-width: 990px) {
+    grid-template-columns: 1fr;
   }
 }
 </style>

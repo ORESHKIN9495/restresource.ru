@@ -101,8 +101,7 @@ h1,
 h2,
 h3 {
   color: var(--scheme-v2);
-  font-weight: 300;
-  line-height: 1;
+  font: inherit;
 }
 
 h2 {

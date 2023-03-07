@@ -4,7 +4,7 @@ import TheButton from "./TheButton.vue";
 
 <template>
   <section class="hero">
-    <div>
+    <article>
       <h1>Le Gruyère</h1>
 
       <p>
@@ -15,7 +15,7 @@ import TheButton from "./TheButton.vue";
       <p>Новости за неделю на Ресторанном</p>
 
       <TheButton :c="true" />
-    </div>
+    </article>
   </section>
 </template>
 
@@ -35,7 +35,7 @@ import TheButton from "./TheButton.vue";
     position: absolute;
   }
 
-  div {
+  article {
     display: flex;
     flex-direction: column;
     gap: 20px;

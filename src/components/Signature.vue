@@ -20,8 +20,6 @@ import TheButton from "./TheButton.vue";
 
       <p>Robert Chambers' Sheep's Milk Ricotta Tortellini</p>
 
-      <hr />
-
       <p>Budgie Montoya's Lechon Belly</p>
     </div>
   </section>
@@ -60,18 +58,15 @@ section {
   }
 
   div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 20px;
     z-index: 1;
   }
 
   h2 {
-    color: #fff;
-  }
-
-  p {
-    color: #ffff;
+    color: var(--scheme-v1);
+    border-bottom: 1px solid var(--scheme-v3);
+    padding-bottom: 10px;
   }
 }
 </style>
