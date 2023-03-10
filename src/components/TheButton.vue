@@ -16,7 +16,6 @@ defineProps<Button>();
 
 <template>
   <button :class="{ a: a, b: b, c: c, d: d, e: e, f: f }">
-    {{ title }}
     <svg v-if="b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35.696 15.74">
       <path
         fill="#fff"
@@ -30,6 +29,8 @@ defineProps<Button>();
         style="stroke: none; fill-rule: nonzero; fill: #fff; fill-opacity: 1"
       />
     </svg>
+
+    {{ title }}
   </button>
 </template>
 

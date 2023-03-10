@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 
-import ArticleCard from "../components/ArticleCard.vue";
 import Ingredients from "../components/Ingredients.vue";
 import RecipeMethod from "../components/RecipeMethod.vue";
 import ChefCard from "../components/ChefCard.vue";
 
 import { useStore } from "vuex";
+import ArticleRelatedRecipe from "../components/ArticleRelatedRecipe.vue";
 
 const store = useStore();
 
@@ -20,7 +20,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section v-for="item in data">
+  <section class="recipe" v-for="item in data">
     <div>
       <h1 v-text="item.title" />
 
@@ -71,12 +71,8 @@ onMounted(() => {
         </svg>
       </button>
 
-      <div v-if="change">
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
-        <ArticleCard />
+      <div>
+        <ArticleRelatedRecipe v-if="change" />
       </div>
     </div>
 
@@ -89,15 +85,13 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-section {
+.recipe {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  margin: 20px 0;
+  padding: 20px 0;
 
   div {
-    margin: 0 auto;
-    max-width: 1360px;
     text-align: center;
 
     h1 {
@@ -109,10 +103,12 @@ section {
       color: var(--scheme-v2);
     }
 
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       display: flex;
       gap: 20px;
       text-align: left;
+      margin: 0 auto;
+      max-width: 1360px;
 
       @media only screen and (max-width: 1080px) {
         flex-direction: column;
@@ -135,14 +131,12 @@ section {
       }
     }
 
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       display: flex;
       background: var(--scheme-v3);
       justify-content: center;
-      max-width: 100%;
-      padding: 40px 0;
+      padding: 60px 0 20px;
       position: relative;
-      width: 100%;
 
       button {
         align-items: center;
@@ -157,11 +151,19 @@ section {
         position: absolute;
         top: -15px;
       }
+
+      div {
+        max-width: 1360px;
+        margin: auto;
+        text-align: left;
+      }
     }
 
-    &:nth-child(4) {
+    &:nth-of-type(4) {
       display: flex;
       gap: 20px;
+      margin: 0 auto;
+      max-width: 1360px;
 
       @media only screen and (max-width: 1080px) {
         flex-wrap: wrap;
