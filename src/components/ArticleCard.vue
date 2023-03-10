@@ -14,16 +14,18 @@ defineProps({
         alt="a duck is swimming in a pond with ice"
       />
 
-      <span class="overlay">
+      <span>
         <i class="icon-suit-heart" />
 
         <i class="icon-menu" />
       </span>
     </picture>
 
-    <h3 v-text="`Venetian`" />
+    <h3>
+      Venetian
 
-    <p v-text="`Recipe collection`" />
+      <p v-text="`Recipe collection`" />
+    </h3>
 
     <p
       v-if="anotation"
@@ -37,19 +39,19 @@ defineProps({
 <style scoped lang="scss">
 article {
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 10px;
-  width: 100%;
 
   p {
-    color: var(--scheme-v4);
+    color: var(--scheme-v5);
     font-size: 14px;
   }
 
   picture {
+    display: grid;
     position: relative;
     transition: 0.3s ease-in-out;
+    height: fit-content;
 
     span {
       align-items: end;

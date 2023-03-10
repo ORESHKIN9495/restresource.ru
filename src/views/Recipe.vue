@@ -137,9 +137,7 @@ section {
 
     &:nth-child(3) {
       display: flex;
-      background: #f9f9f9;
-      border-bottom: 1px solid var(--scheme-v3);
-      border-top: 1px solid var(--scheme-v3);
+      background: var(--scheme-v3);
       justify-content: center;
       max-width: 100%;
       padding: 40px 0;

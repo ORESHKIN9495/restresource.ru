@@ -29,11 +29,11 @@ section {
   div {
     display: grid;
     gap: 20px;
-    grid-template: auto / 1fr 400px;
+    grid-template-columns: repeat(3, 1fr);
 
     article {
       &:first-child {
-        grid-row: span 2;
+        grid-area: 1/ 1 / 3 / 3;
       }
     }
   }
@@ -41,6 +41,12 @@ section {
   @media only screen and (max-width: 770px) {
     div {
       grid-template-columns: 1fr;
+
+      article {
+        &:first-child {
+          grid-area: unset;
+        }
+      }
     }
   }
 }
