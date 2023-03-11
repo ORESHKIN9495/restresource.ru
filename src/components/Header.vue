@@ -79,10 +79,8 @@ const product = ref();
     </nav>
 
     <nav>
-      <NavModal v-if="showModal" :props="product" @close="showModal = false" />
-
       <ul>
-        <li @click="showModal = !showModal">
+        <li @click="(showModal = !showModal), (product = recipe)">
           Рецепты
           <i class="icon-menu-down" />
         </li>
@@ -95,7 +93,7 @@ const product = ref();
           <router-link to="/restresource.ru" :text="`Информационная база`" />
         </li>
 
-        <li @click="showModal = !showModal">
+        <li @click="(showModal = !showModal), (product = cook)">
           Как готовить
           <i class="icon-menu-down" />
         </li>
@@ -105,7 +103,7 @@ const product = ref();
         <input
           type="text"
           placeholder="Найти"
-          @focusin="showSearch = true"
+          @focus="showSearch = true"
           @focusout="showSearch = false"
         />
 
@@ -115,6 +113,8 @@ const product = ref();
       </form>
     </nav>
   </header>
+
+  <NavModal v-if="showModal" :props="product" @close="showModal = false" />
 </template>
 
 <style scoped lang="scss">
@@ -123,6 +123,7 @@ header {
   border-bottom: 8px solid var(--scheme-v6);
   display: grid;
   grid-template: 1fr 1fr / 300px 1fr;
+  height: 92px;
   position: sticky;
   top: 0;
   width: 100%;

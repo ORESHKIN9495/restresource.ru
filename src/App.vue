@@ -113,7 +113,7 @@ h3 {
 }
 
 p {
-  color: var(--scheve-v5);
+  color: var(--scheme-v5);
 }
 
 ul {

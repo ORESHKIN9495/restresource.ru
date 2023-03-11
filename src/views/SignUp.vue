@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
 import { useRouter } from "vue-router";
 
 import TheButton from "../components/TheButton.vue";
-
-const regExpUser = /^[a-z0-9_-]{3,16}$/;
 
 const regExpFirstname = /^[a-z0-9_-]{3,16}$/;
 
@@ -20,18 +19,9 @@ const router = useRouter();
 
 const selectedItem = ref();
 
-const disabled = ref(false);
+const error = ref(false);
 
 interface UserI {
-  username: {
-    value: string;
-    placeholder: string;
-    err: boolean;
-    type: string;
-    name: string;
-    errTitle: string;
-  };
-
   email: {
     value: string;
     placeholder: string;
@@ -79,21 +69,12 @@ interface UserI {
 }
 
 const users: UserI = {
-  username: {
-    value: "",
-    placeholder: "Username",
-    err: false,
-    type: "text",
-    name: "username",
-    errTitle: "",
-  },
-
   email: {
     value: "",
-    placeholder: "Email",
+    placeholder: "Email Address",
     err: false,
     type: "text",
-    name: "email",
+    name: "Email Address",
     errTitle: "",
   },
 
@@ -102,7 +83,7 @@ const users: UserI = {
     placeholder: "First Name",
     err: false,
     type: "text",
-    name: "firstName",
+    name: "First Name",
     errTitle: "",
   },
 
@@ -111,7 +92,7 @@ const users: UserI = {
     placeholder: "Last Name",
     err: false,
     type: "text",
-    name: "lastName",
+    name: "Last Name",
     errTitle: "",
   },
 
@@ -120,7 +101,7 @@ const users: UserI = {
     placeholder: "Password",
     err: false,
     type: "text",
-    name: "password",
+    name: "Password",
     errTitle: "",
   },
 
@@ -129,7 +110,7 @@ const users: UserI = {
     placeholder: "Confirm Password",
     err: false,
     type: "text",
-    name: "confirm",
+    name: "Confirm Password",
     errTitle: "",
   },
 };
@@ -138,35 +119,18 @@ const prepare = (users: UserI) => {
   const err = validate(users);
   if (!err) {
     console.log("Ошибка");
-    disabled.value = true;
+    error.value = true;
   } else {
     // отправляем что-то в вуекс
 
     console.log("отправляю");
+    error.value = false;
+
+    // router.push({ path: "/restresource.ru" });
   }
 };
 
 const validate = (users: UserI) => {
-  if (users.username.value == "") {
-    users.username.err = true;
-    users.username.errTitle = "Поле должно быть заполнено";
-
-    return false;
-  } else if (users.username.value.length < 3) {
-    users.username.err = true;
-    users.username.errTitle = "Имя пользователя должно быть больше 3 символов";
-
-    return false;
-  } else if (!regExpUser.test(users.username.value)) {
-    users.username.err = true;
-    users.username.errTitle = "Введите корректное имя пользователя";
-
-    return false;
-  } else {
-    users.username.err = false;
-    users.username.errTitle = "";
-  }
-
   if (users.email.value == "") {
     users.email.err = true;
     users.email.errTitle = "Поле должно быть заполнено";
@@ -274,10 +238,10 @@ const validate = (users: UserI) => {
 <template>
   <section>
     <form action="#" method="POST" @submit.prevent="prepare(users)">
-      <h1>Sign Up</h1>
+      <h1 v-text="`Sign up with your email address `" />
 
       <label :for="i.name" v-for="(i, index) in users">
-        <p>{{ i.errTitle }}</p>
+        <p v-text="i.name" />
 
         <input
           :type="i.type"
@@ -289,6 +253,10 @@ const validate = (users: UserI) => {
           :name="i.name"
           @change="validate(users)"
         />
+
+        <ul>
+          <li v-if="error" v-text="i.errTitle" />
+        </ul>
       </label>
 
       <span>
@@ -296,7 +264,7 @@ const validate = (users: UserI) => {
           title="Register"
           :f="true"
           type="submit"
-          :disabled="disabled == !disabled"
+          :disabled="error == !error"
         />
         <TheButton
           title="Go Back"
@@ -318,11 +286,10 @@ section {
   justify-content: center;
 
   form {
-    background: #fff;
-    box-shadow: 0 20px 30px 0 #ccc;
+    box-shadow: 0 20px 30px 0 var(--scheme-v3);
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
     max-width: 600px;
     padding: 80px;
     width: 100%;
@@ -331,21 +298,21 @@ section {
     h1 {
       font-size: 30px;
       margin-bottom: 80px;
-      color: #ccc;
     }
 
     label {
       p {
-        font-size: 14px;
-        color: #fa02023e;
+        font-size: 16px;
+        color: var(--scheme-v2);
+        margin: 0 0 10px;
+        font-weight: 400;
       }
     }
 
     input {
-      border-bottom: 2px solid transparent;
-      color: #ccc;
+      border: 1px solid var(--scheme-v3);
       font-size: 16px;
-      padding: 10px 0;
+      padding: 10px;
       transition: 0.2s ease-in-out;
       width: 100%;
 
@@ -363,6 +330,15 @@ section {
     span {
       display: grid;
       gap: 10px;
+    }
+
+    ul {
+      padding: 10px 0;
+
+      li {
+        color: #910101;
+        font-size: 12px;
+      }
     }
   }
 }

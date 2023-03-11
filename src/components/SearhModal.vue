@@ -9,7 +9,9 @@ const product = ref(cook.Мясо.product);
     <ul>
       <h3 v-text="`POPULAR`" />
 
-      <li v-for="i in product" v-text="i" />
+      <li v-for="i in product">
+        <router-link to="/restresource.ru" v-text="i" />
+      </li>
     </ul>
   </section>
 </template>

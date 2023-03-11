@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
 import { useRouter } from "vue-router";
 
 import TheButton from "../components/TheButton.vue";
@@ -13,7 +14,7 @@ const router = useRouter();
 
 const selectedItem = ref();
 
-const disabled = ref(false);
+const error = ref(false);
 
 interface UserI {
   username: {
@@ -38,10 +39,10 @@ interface UserI {
 const users: UserI = {
   username: {
     value: "",
-    placeholder: "Username",
+    placeholder: "Username or Email Address",
     err: false,
     type: "text",
-    name: "username",
+    name: "Username or Email Address",
     errTitle: "",
   },
 
@@ -50,20 +51,24 @@ const users: UserI = {
     placeholder: "Password",
     err: false,
     type: "text",
-    name: "password",
+    name: "Password",
     errTitle: "",
   },
 };
 
 const prepare = (users: UserI) => {
   const err = validate(users);
+
   if (!err) {
-    console.log("Ошибка");
-    disabled.value = true;
+    // проверяем на ошибки
+    console.log("ошибка");
+    error.value = true;
   } else {
     // отправляем что-то в вуекс
-
     console.log("отправляю");
+
+    error.value = false;
+    // router.push({ path: "/restresource.ru" });
   }
 };
 
@@ -115,10 +120,10 @@ const validate = (users: UserI) => {
 <template>
   <section>
     <form action="#" method="POST" @submit.prevent="prepare(users)">
-      <h1>Sign Up</h1>
+      <h1 v-text="`Sign in with your username or email address`" />
 
       <label :for="i.name" v-for="(i, index) in users">
-        <p>{{ i.errTitle }}</p>
+        <p v-text="i.name" />
 
         <input
           :type="i.type"
@@ -128,16 +133,19 @@ const validate = (users: UserI) => {
           @focusin="selectedItem = index"
           @focusout="selectedItem = null"
           :name="i.name"
-          @change="validate(users)"
         />
       </label>
+
+      <ul v-if="error">
+        <li v-for="i in users" v-text="i.errTitle" />
+      </ul>
 
       <span>
         <TheButton
           title="Register"
           :f="true"
           type="submit"
-          :disabled="disabled == !disabled"
+          :disabled="error == !error"
         />
         <TheButton
           title="Go Back"
@@ -146,6 +154,8 @@ const validate = (users: UserI) => {
         />
       </span>
     </form>
+
+    <!-- <p v-for="i in data">{{ i }}</p> -->
   </section>
 </template>
 
@@ -159,8 +169,7 @@ section {
   justify-content: center;
 
   form {
-    background: #fff;
-    box-shadow: 0 20px 30px 0 #ccc;
+    box-shadow: 0 20px 30px 0 var(--scheme-v3);
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -172,28 +181,23 @@ section {
     h1 {
       font-size: 30px;
       margin-bottom: 80px;
-      color: #ccc;
     }
 
     label {
       p {
-        font-size: 14px;
-        color: #fa02023e;
+        font-size: 16px;
+        color: var(--scheme-v2);
+        margin: 0 0 10px;
+        font-weight: 400;
       }
     }
 
     input {
-      border-bottom: 2px solid transparent;
-      color: #ccc;
+      border: 2px solid var(--scheme-v3);
       font-size: 16px;
-      padding: 10px 0;
+      padding: 10px;
       transition: 0.2s ease-in-out;
       width: 100%;
-
-      &.active {
-        border-color: #ccc;
-        box-shadow: 0 19px 28px -18px #ccc;
-      }
 
       &.invalid {
         border-color: #fa0202;
@@ -204,6 +208,16 @@ section {
     span {
       display: grid;
       gap: 10px;
+    }
+
+    ul {
+      background: #fa02024e;
+      border-radius: 2px;
+      padding: 20px;
+
+      li {
+        color: #910101;
+      }
     }
   }
 }

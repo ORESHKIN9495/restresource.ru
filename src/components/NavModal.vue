@@ -11,10 +11,9 @@ defineProps<Change>();
 </script>
 
 <template>
-  <section>
-    <i class="icon-close" @click="$emit('close')" />
-
+  <section @click="$emit('close')">
     <div>
+      <i class="icon-close" @click="$emit('close')" />
       <ul v-for="(i, index) in props">
         <p v-text="index" />
 
@@ -28,48 +27,48 @@ defineProps<Change>();
 
 <style scoped lang="scss">
 section {
-  background: #e2e2e2;
-  left: 0;
-  position: fixed;
+  position: sticky;
   padding-left: calc(29px + 12.2%);
   padding-right: calc(29px + 12.2%);
-  top: 92px;
-  width: 100%;
-  z-index: 99;
+  inset: 90px 0 0 0;
+  z-index: 999;
 
   div {
+    background: var(--scheme-v1);
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
-    margin: 40px 0;
-  }
+    position: absolute;
+    inset: 0;
+    padding: 40px;
+    height: 600px;
+    overflow-y: scroll;
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
 
-    &:nth-child(-n + 5) {
       border-bottom: 1px solid var(--scheme-v3);
       padding-bottom: 40px;
-    }
 
-    p {
-      color: var(--scheme-v2);
-      font-weight: 400;
-      margin-bottom: 10px;
-    }
+      p {
+        color: var(--scheme-v2);
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
 
-    li {
-      position: relative;
+      li {
+        position: relative;
 
-      &:hover {
-        transform: translateX(10px);
+        &:hover {
+          transform: translateX(10px);
 
-        &::before {
-          content: "—";
-          position: absolute;
-          margin: auto 0 auto -20px;
+          &::before {
+            content: "—";
+            position: absolute;
+            margin: auto 0 auto -20px;
+          }
         }
       }
     }
