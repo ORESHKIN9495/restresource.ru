@@ -134,11 +134,9 @@ const validate = (users: UserI) => {
           @focusout="selectedItem = null"
           :name="i.name"
         />
-      </label>
 
-      <ul v-if="error">
-        <li v-for="i in users" v-text="i.errTitle" />
-      </ul>
+        <p class="valid" v-if="error" v-text="i.errTitle" />
+      </label>
 
       <span>
         <TheButton
@@ -154,8 +152,6 @@ const validate = (users: UserI) => {
         />
       </span>
     </form>
-
-    <!-- <p v-for="i in data">{{ i }}</p> -->
   </section>
 </template>
 
@@ -170,54 +166,47 @@ section {
 
   form {
     box-shadow: 0 20px 30px 0 var(--scheme-v3);
-    display: flex;
-    flex-direction: column;
+    display: grid;
     gap: 40px;
     max-width: 600px;
     padding: 80px;
-    width: 100%;
-    position: relative;
 
     h1 {
       font-size: 30px;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
     }
 
     label {
       p {
-        font-size: 16px;
         color: var(--scheme-v2);
         margin: 0 0 10px;
         font-weight: 400;
       }
-    }
 
-    input {
-      border: 2px solid var(--scheme-v3);
-      font-size: 16px;
-      padding: 10px;
-      transition: 0.2s ease-in-out;
-      width: 100%;
+      input {
+        border: 1px solid var(--scheme-v3);
+        font-size: 16px;
+        padding: 10px;
+        transition: 0.2s ease-in-out;
+        width: 100%;
 
-      &.invalid {
-        border-color: #fa0202;
-        box-shadow: 0 19px 28px -18px #fa02027b;
+        &.invalid {
+          border-color: #fa0202;
+          box-shadow: 0 19px 28px -18px #fa02027b;
+        }
+      }
+
+      .valid {
+        color: #7d0000;
+        font-size: 12px;
+        font-weight: 300;
+        margin-top: 10px;
       }
     }
 
     span {
       display: grid;
       gap: 10px;
-    }
-
-    ul {
-      background: #fa02024e;
-      border-radius: 2px;
-      padding: 20px;
-
-      li {
-        color: #910101;
-      }
     }
   }
 }
