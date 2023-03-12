@@ -87,7 +87,7 @@ import Footer from "./components/Footer.vue";
 
 body {
   background: var(--scheme-v1);
-  color: var(--scheme-v1);
+  color: var(--scheme-v2);
   font: 300 16px / 1.42 Helvetica;
 }
 

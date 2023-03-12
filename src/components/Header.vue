@@ -121,6 +121,7 @@ const product = ref();
 header {
   background: var(--scheme-v1);
   border-bottom: 8px solid var(--scheme-v6);
+  color: var(--scheme-v1);
   display: grid;
   grid-template: 1fr 1fr / 300px 1fr;
   height: 92px;

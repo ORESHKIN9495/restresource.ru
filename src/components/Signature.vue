@@ -38,6 +38,10 @@ section {
   padding: 40px;
   position: relative;
 
+  p {
+    color: var(--scheme-v1);
+  }
+
   @media only screen and (max-width: 860px) {
     grid-template-columns: 1fr;
     padding: 10px;

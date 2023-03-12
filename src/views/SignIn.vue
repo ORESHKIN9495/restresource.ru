@@ -1,212 +1,166 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, computed } from "vue";
+
+import { useStore } from "vuex";
 
 import { useRouter } from "vue-router";
 
-import TheButton from "../components/TheButton.vue";
-
-const regExpUser = /^[a-z0-9_-]{3,16}$/;
-
-const regExpPass =
-  /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g;
-
 const router = useRouter();
 
-const selectedItem = ref();
+const store = useStore();
 
-const error = ref(false);
+onMounted(() => {
+  // store.dispatch("signup/deleteData");
+});
 
 interface UserI {
-  username: {
-    value: string;
-    placeholder: string;
-    err: boolean;
-    type: string;
-    name: string;
-    errTitle: string;
-  };
-
-  password: {
-    value: string;
-    placeholder: string;
-    err: boolean;
-    type: string;
-    name: string;
-    errTitle: string;
-  };
+  email: string;
+  password: string;
 }
 
-const users: UserI = {
-  username: {
-    value: "",
-    placeholder: "Username or Email Address",
-    err: false,
-    type: "text",
-    name: "Username or Email Address",
-    errTitle: "",
-  },
+const user = ref<UserI>({
+  email: "",
+  password: "",
+});
 
-  password: {
-    value: "",
-    placeholder: "Password",
-    err: false,
-    type: "text",
-    name: "Password",
-    errTitle: "",
-  },
+const errors = ref<UserI>({
+  email: "",
+  password: "",
+});
+
+const agree = ref(false);
+
+const prepare = () => {
+  if (
+    !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.value.email) ||
+    !user.value.email
+  ) {
+    errors.value.email = "Invalid Email Address";
+    // return;
+  } else {
+    errors.value.email = "";
+  }
+
+  if (!user.value.password) {
+    errors.value.password = "Password is required";
+    // return;
+  } else if (
+    !/(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9!@#$%^&*a-zA-Z]{6,}/g.test(
+      user.value.password
+    )
+  ) {
+    errors.value.password =
+      "6 to 15 characters which contain at least one special character";
+  } else {
+    errors.value.password = "";
+  }
+
+  if (errors.value.email.length == 0 && errors.value.password.length == 0) {
+    return true;
+  }
+
+  return false;
 };
 
-const prepare = (users: UserI) => {
-  const err = validate(users);
-
-  if (!err) {
-    // проверяем на ошибки
-    console.log("ошибка");
-    error.value = true;
-  } else {
-    // отправляем что-то в вуекс
-    console.log("отправляю");
-
-    error.value = false;
-    // router.push({ path: "/restresource.ru" });
+const send = () => {
+  if (prepare()) {
+    console.log("No errors. Wait to submit");
+    store.dispatch("signin/getUserData", user.value);
   }
-};
-
-const validate = (users: UserI) => {
-  if (users.username.value == "") {
-    users.username.err = true;
-    users.username.errTitle = "Поле должно быть заполнено";
-
-    return false;
-  } else if (users.username.value.length < 3) {
-    users.username.err = true;
-    users.username.errTitle = "Имя пользователя должно быть больше 3 символов";
-
-    return false;
-  } else if (!regExpUser.test(users.username.value)) {
-    users.username.err = true;
-    users.username.errTitle = "Введите корректное имя пользователя";
-
-    return false;
-  } else {
-    users.username.err = false;
-    users.username.errTitle = "";
-  }
-
-  if (users.password.value == "") {
-    users.password.err = true;
-    users.password.errTitle = "Поле должно быть заполнено";
-
-    return false;
-  } else if (users.password.value.length < 3) {
-    users.password.err = true;
-    users.password.errTitle = "Пароль должен быть больше 3 символов";
-
-    return false;
-  } else if (!regExpPass.test(users.password.value)) {
-    users.password.err = true;
-    users.password.errTitle = "Введите корректный пароль";
-
-    return false;
-  } else {
-    users.password.err = false;
-    users.password.errTitle = "";
-  }
-
-  return true;
 };
 </script>
 
 <template>
-  <section>
-    <form action="#" method="POST" @submit.prevent="prepare(users)">
-      <h1 v-text="`Sign in with your username or email address`" />
+  <form @submit.prevent="send">
+    <label>
+      Email Address*
 
-      <label :for="i.name" v-for="(i, index) in users">
-        <p v-text="i.name" />
+      <input
+        v-model.trim="user.email"
+        type="text"
+        placeholder="Enter your Email"
+      />
+      <p>{{ errors?.email }}</p>
+    </label>
 
-        <input
-          :type="i.type"
-          :placeholder="i.placeholder"
-          v-model.trim="i.value"
-          :class="{ active: index == selectedItem, invalid: i.err }"
-          @focusin="selectedItem = index"
-          @focusout="selectedItem = null"
-          :name="i.name"
-        />
+    <label>
+      Password*
 
-        <p class="valid" v-if="error" v-text="i.errTitle" />
-      </label>
+      <input
+        v-model.trim="user.password"
+        type="password"
+        placeholder="Password"
+      />
 
-      <span>
-        <TheButton
-          title="Register"
-          :f="true"
-          type="submit"
-          :disabled="error == !error"
-        />
-        <TheButton
-          title="Go Back"
-          :f="true"
-          @click.prevent="router.push({ path: '/restresource.ru' })"
-        />
-      </span>
-    </form>
-  </section>
+      <p>{{ errors?.password }}</p>
+    </label>
+
+    <div>
+      <input type="checkbox" @click="agree = !agree" />
+      <small
+        >I have read the links below and accept the Great British Chefs Privacy
+        Policy and Terms and Conditions</small
+      >
+    </div>
+
+    <div>
+      <button :disabled="!agree">Login</button>
+      <button @click="router.push({ path: '/restresource.ru' })">
+        Go back
+      </button>
+    </div>
+  </form>
 </template>
 
-<style scoped lang="scss">
-section {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+<style lang="scss" scoped>
+form {
+  border: 1px solid var(--scheme-v3);
+  display: grid;
   gap: 20px;
-  height: 100vh;
-  justify-content: center;
+  max-width: 600px;
+  margin: 200px auto;
+  padding: 20px;
+  width: 100%;
 
-  form {
-    box-shadow: 0 20px 30px 0 var(--scheme-v3);
-    display: grid;
-    gap: 40px;
-    max-width: 600px;
-    padding: 80px;
+  label {
+    display: inherit;
+    gap: 10px;
 
-    h1 {
-      font-size: 30px;
-      margin-bottom: 40px;
-    }
+    input {
+      border: 1px solid var(--scheme-v3);
+      padding: 10px;
 
-    label {
-      p {
-        color: var(--scheme-v2);
-        margin: 0 0 10px;
-        font-weight: 400;
-      }
-
-      input {
-        border: 1px solid var(--scheme-v3);
-        font-size: 16px;
-        padding: 10px;
-        transition: 0.2s ease-in-out;
-        width: 100%;
-
-        &.invalid {
-          border-color: #fa0202;
-          box-shadow: 0 19px 28px -18px #fa02027b;
-        }
-      }
-
-      .valid {
-        color: #7d0000;
-        font-size: 12px;
-        font-weight: 300;
-        margin-top: 10px;
+      &:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
       }
     }
 
-    span {
-      display: grid;
-      gap: 10px;
+    p {
+      color: red;
+      font-size: 12px;
+    }
+  }
+
+  div {
+    align-items: baseline;
+    display: inherit;
+    grid-template: auto / repeat(2, auto);
+    gap: 20px;
+
+    button {
+      background: var(--scheme-v2);
+      color: var(--scheme-v1);
+      padding: 15px;
+
+      &:disabled {
+        background: var(--scheme-v3);
+        cursor: default;
+      }
     }
   }
 }
