@@ -11,7 +11,7 @@ defineProps<Change>();
 </script>
 
 <template>
-  <section @click="$emit('close')">
+  <section>
     <div>
       <i class="icon-close" @click="$emit('close')" />
       <ul v-for="(i, index) in props">
@@ -28,9 +28,6 @@ defineProps<Change>();
 <style scoped lang="scss">
 section {
   position: sticky;
-  padding-left: calc(29px + 12.2%);
-  padding-right: calc(29px + 12.2%);
-  inset: 90px 0 0 0;
   z-index: 999;
 
   div {

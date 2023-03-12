@@ -152,6 +152,7 @@ img {
 input {
   background: none;
   border: none;
+  font: inherit;
   outline: none;
 }
 
@@ -160,6 +161,7 @@ button {
   border: none;
   cursor: pointer;
   color: var(--scheme-v1);
+  font: inherit;
   outline: none;
   padding: 10px 40px;
   width: 100%;

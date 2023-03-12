@@ -32,7 +32,7 @@ const product = ref();
         <svg
           xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
-          width="70"
+          width="82"
           viewBox="0 0 72.867 31.72"
         >
           <defs>
@@ -120,11 +120,10 @@ const product = ref();
 <style scoped lang="scss">
 header {
   background: var(--scheme-v1);
-  border-bottom: 8px solid var(--scheme-v6);
+  border-bottom: 2px solid var(--scheme-v3);
   color: var(--scheme-v1);
   display: grid;
   grid-template: 1fr 1fr / 300px 1fr;
-  height: 92px;
   position: sticky;
   top: 0;
   width: 100%;
@@ -192,6 +191,7 @@ header {
 
       .icon-search-solid {
         color: var(--scheme-v3);
+        padding-right: 20px;
       }
 
       @media only screen and (max-width: 1240px) {
