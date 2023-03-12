@@ -18,24 +18,17 @@ import TheButton from "./TheButton.vue";
 
       <TheButton :c="true" />
     </article>
-
-    <video loop autoplay src="../assets/video/2023-03-12 08.26.16.mp4"></video>
   </section>
 </template>
 
 <style scoped lang="scss">
 .hero {
-  background: #000000;
+  background-image: url("../assets/image/vadim-markin-BFtIlGdWKbk-unsplash.jpg");
+  background-position: 50% 80%;
+  background-size: cover;
   height: 900px;
   overflow: hidden;
   position: relative;
-
-  video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    opacity: 0.4;
-  }
 
   &::before {
     background: #24242490;
