@@ -56,6 +56,7 @@ import Footer from "./components/Footer.vue";
   text-rendering: auto;
   line-height: 1;
   -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -162,8 +163,9 @@ button {
   cursor: pointer;
   color: var(--scheme-v1);
   font: inherit;
+  max-width: 280px;
   outline: none;
-  padding: 10px 40px;
+  padding: 18px 40px;
   width: 100%;
 }
 </style>

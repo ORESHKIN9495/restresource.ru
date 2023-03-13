@@ -58,5 +58,9 @@ const more = ref(false);
     font-size: 28px;
     color: var(--scheme-v2);
   }
+
+  @media only screen and (max-width: 770px) {
+    display: none;
+  }
 }
 </style>

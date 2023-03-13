@@ -1,42 +1,42 @@
 <script setup lang="ts">
 import { ref } from "vue";
+
 import cook from "../http/recipe/cook.json";
+
 const product = ref(cook.Мясо.product);
 </script>
 
 <template>
-  <section class="popular">
-    <ul>
-      <h3 v-text="`POPULAR`" />
+  <ul class="popular">
+    <h3 v-text="`POPULAR`" />
 
-      <li v-for="i in product">
-        <router-link to="/restresource.ru" v-text="i" />
-      </li>
-    </ul>
-  </section>
+    <li v-for="i in product">
+      <router-link to="/restresource.ru" v-text="i" />
+    </li>
+  </ul>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .popular {
-  border: 1px solid #ccc;
-  position: absolute;
-  top: 50px;
-  left: 0;
+  background: var(--scheme-v1);
+  border: 2px solid var(--scheme-v3);
+  border-top: 0;
+  display: grid;
+  gap: 0;
+  top: 52px;
+  left: -2px;
   right: 0;
+  position: absolute;
+  z-index: 999;
 
-  ul {
-    background: #fff;
-    color: #000;
+  h3 {
+    text-align: center;
+    padding: 10px 0;
+  }
 
-    h3 {
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    li {
-      border-top: 1px solid #ccc;
-      padding: 20px;
-    }
+  li {
+    border-top: 1px solid #ccc;
+    padding: 10px;
   }
 }
 </style>

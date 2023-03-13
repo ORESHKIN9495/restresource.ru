@@ -45,16 +45,10 @@ button {
   &.a {
     background: var(--scheme-v2);
     padding: 0;
-    max-width: 200px;
-
-    @media only screen and (max-width: 1080px) {
-      display: none;
-    }
   }
   &.b {
     background: #bba250;
     padding: 0;
-    max-width: 200px;
 
     svg {
       margin-right: 10px;
@@ -64,12 +58,10 @@ button {
 
   &.c {
     background: var(--scheme-v3);
-    max-width: 280px;
   }
 
   &.d {
     border: 1px solid var(--scheme-v1);
-    max-width: 280px;
 
     @media only screen and (max-width: 1080px) {
       max-width: 100%;
