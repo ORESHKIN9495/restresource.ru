@@ -5,8 +5,6 @@ import { useStore } from "vuex";
 
 import { useRouter } from "vue-router";
 
-import PrivacyPolicy from "../components/PrivacyPolicy.vue";
-
 const router = useRouter();
 
 const store = useStore();
@@ -197,7 +195,7 @@ const send = () => {
 
     <div>
       <button :disabled="!agree">Register</button>
-      <button @click="router.push({ path: '/restresource.ru' })">
+      <button @click.prevent="router.push({ path: '/restresource.ru' })">
         Go back
       </button>
     </div>
@@ -205,7 +203,7 @@ const send = () => {
     <p>
       All rights reserved greatbritishchefs.com Terms and Conditions and
       <router-link
-        @click.prevent="showPrivacy = !showPrivacy"
+        @click.prevent="router.push({ path: '/restresource.ru/privacypolicy' })"
         to="#"
         v-text="
           `Privacy
@@ -214,8 +212,6 @@ const send = () => {
       />
     </p>
   </form>
-
-  <PrivacyPolicy v-if="showPrivacy" @close="showPrivacy = false" />
 </template>
 
 <style lang="scss" scoped>

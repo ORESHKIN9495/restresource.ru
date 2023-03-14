@@ -55,7 +55,19 @@ const routes: Array<RouteRecordRaw> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "signup" */ "../views/Membership.vue"),
+      import(/* webpackChunkName: "membership" */ "../views/Membership.vue"),
+  },
+
+  {
+    path: "/restresource.ru/privacypolicy",
+    name: "privacypolicy",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "privacypolicy" */ "../views/PrivacyPolicy.vue"
+      ),
   },
 ];
 
