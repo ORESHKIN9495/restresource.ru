@@ -49,7 +49,7 @@ import TheButton from "./TheButton.vue";
       |
 
       <li>
-        <router-link to="/restresource.ru/signup" :text="`Регистрация`" />
+        <router-link to="/restresource.ru/membership" :text="`Регистрация`" />
       </li>
     </ul>
   </nav>

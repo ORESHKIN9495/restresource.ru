@@ -5,6 +5,8 @@ import { useStore } from "vuex";
 
 import { useRouter } from "vue-router";
 
+import PrivacyPolicy from "../components/PrivacyPolicy.vue";
+
 const router = useRouter();
 
 const store = useStore();
@@ -39,6 +41,8 @@ const errors = ref<UserI>({
 const confirm = ref();
 
 const agree = ref(false);
+
+const showPrivacy = ref(false);
 
 const prepare = () => {
   if (
@@ -197,7 +201,21 @@ const send = () => {
         Go back
       </button>
     </div>
+
+    <p>
+      All rights reserved greatbritishchefs.com Terms and Conditions and
+      <router-link
+        @click.prevent="showPrivacy = !showPrivacy"
+        to="#"
+        v-text="
+          `Privacy
+      Policy`
+        "
+      />
+    </p>
   </form>
+
+  <PrivacyPolicy v-if="showPrivacy" @close="showPrivacy = false" />
 </template>
 
 <style lang="scss" scoped>
