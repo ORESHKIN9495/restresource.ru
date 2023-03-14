@@ -347,7 +347,7 @@ section {
   background: rgba(0, 0, 0, 0.221);
   display: grid;
   justify-items: center;
-  inset: 0;
+  inset: 102px 0 0 0;
   position: absolute;
 
   div {
