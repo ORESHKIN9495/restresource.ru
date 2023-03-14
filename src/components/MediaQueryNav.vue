@@ -23,7 +23,7 @@ defineEmits(["close"]);
         @click="$emit('close')"
       />
       <router-link
-        to="/restresource.ru/signup"
+        to="/restresource.ru/membership"
         v-text="`Регистрация`"
         @click="$emit('close')"
       />

@@ -101,6 +101,7 @@ section {
   gap: 40px;
   text-align: center;
   margin: 20px auto;
+
   p {
     max-width: 900px;
     margin: auto;
@@ -119,6 +120,11 @@ section {
     gap: 20px;
     max-width: 1360px;
     margin: auto;
+
+    @media only screen and (max-width: 996px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     ul {
       border: 2px solid #739fa5;
