@@ -209,12 +209,12 @@ const send = () => {
       <p>
         <router-link
           to="/restresource.ru/policyagreement"
-          v-text="`Соглашение о конфиденциальности`"
+          v-text="`Пользовательское соглашение`"
         />
         и
         <router-link
           to="/restresource.ru/privacypolicy"
-          v-text="`Пользовательское соглашение`"
+          v-text="`Соглашение о конфиденциальности`"
         />
       </p>
     </span>

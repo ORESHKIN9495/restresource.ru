@@ -90,7 +90,8 @@ section {
       border: 2px solid #739fa5;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 40px;
+      height: fit-content;
       list-style: disc;
       padding: 40px;
       text-align: left;
