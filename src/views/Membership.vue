@@ -1,95 +1,57 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 
+import price from "../http/price.json";
+
 const router = useRouter();
 </script>
 
 <template>
   <section>
-    <h1>Join our Club</h1>
+    <h1>Вступайте в наш клуб</h1>
 
     <p>
-      Become a Silver or Gold member of the Great British Chefs Club today and
-      gain unlimited access to over 10,000 recipes, features, guides and videos
-      – plus many more benefits and perks. Already a member? Sign in via the
-      header menu, then come back to this page to upgrade.
+      Станьте серебряным или золотым членом клуба Great British Chefs Club
+      сегодня и получите неограниченный доступ к более чем 10 000 рецептов,
+      функций, руководств и видео, а также множество других преимуществ и
+      привилегий. Уже являетесь членом клуба? Зарегистрируйтесь через меню в
+      заголовке, а затем вернитесь на эту страницу, чтобы повысить свой статус.
     </p>
 
     <div>
-      <ul>
+      <ul v-for="i in price">
         <h2>
-          Free
+          {{ i.title }}
 
-          <p>0 <small>₽</small></p>
+          <p>{{ i.cost }} <small>₽</small></p>
         </h2>
 
-        <span>What you get:</span>
+        <h3>Что вы получите:</h3>
 
-        <li>
-          Access to over 10,000 recipes, features and guides (capped at five per
-          day)
+        <li v-for="g in i.get">
+          {{ g }}
         </li>
 
-        <button @click="router.push({ path: '/restresource.ru/signup' })">
-          Register
+        <button
+          v-if="i.id === 0"
+          @click="router.push({ path: '/restresource.ru/signup' })"
+        >
+          Регистрация
         </button>
-      </ul>
 
-      <ul>
-        <h2>
-          Silver
+        <button
+          v-if="i.id === 1"
+          @click="router.push({ path: '/restresource.ru/signup' })"
+        >
+          Join Silver
+        </button>
 
-          <p>3822 <small>₽</small></p>
-        </h2>
-
-        <span>What you get:</span>
-
-        <li>Unlimited access to over 10,000 recipes, features and guides</li>
-
-        <li>
-          Exclusive new chef recipes and in-depth features, six months before
-          everyone else
-        </li>
-
-        <li>Our Signature Series of in-depth chef masterclass videos</li>
-
-        <li>
-          Exclusive discounts, offers and competitions with a much higher than
-          average chance of winning
-        </li>
-
-        <button>Join Silver</button>
-      </ul>
-
-      <ul>
-        <h2>
-          Gold
-
-          <p>6552 <small>₽</small></p>
-        </h2>
-
-        <span>What you get:</span>
-
-        <li>Everything in Silver, plus:</li>
-
-        <li>
-          Free gifts delivered to your door for every three months of being a
-          member, including exclusive products only available to Gold members
-        </li>
-
-        <li>
-          Exclusive super-premium competitions, including money-can't-buy prizes
-          (for Gold members only)
-        </li>
-
-        <li>
-          Perks, offers and discounts for restaurants, at-home kits and food and
-          drink products
-        </li>
-
-        <li>A gift on your birthday from us to you!</li>
-
-        <button>Join Gold</button>
+        <button
+          v-else-if="i.id === 2"
+          @click="router.push({ path: '/restresource.ru/signup' })"
+        >
+          Join Gold
+        </button>
       </ul>
     </div>
   </section>
@@ -99,13 +61,9 @@ const router = useRouter();
 section {
   display: grid;
   gap: 40px;
-  text-align: center;
   margin: 20px auto;
-
-  p {
-    max-width: 900px;
-    margin: auto;
-  }
+  max-width: 1360px;
+  text-align: center;
 
   h1 {
     font-size: 30px;
@@ -113,17 +71,19 @@ section {
 
   h2 {
     text-align: center;
+
+    p {
+      font-size: 20px;
+    }
   }
 
   div {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    max-width: 1360px;
-    margin: auto;
 
     @media only screen and (max-width: 996px) {
-      flex-wrap: wrap;
-      justify-content: center;
+      grid-template-columns: 1fr;
     }
 
     ul {
@@ -131,14 +91,13 @@ section {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      list-style: disc;
       padding: 40px;
-      justify-items: center;
-      max-width: 400px;
       text-align: left;
 
       button {
         background: #739fa5;
-        margin: auto 0 0;
+        margin: auto auto 0;
       }
 
       &:nth-child(2) {
