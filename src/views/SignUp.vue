@@ -200,17 +200,24 @@ const send = () => {
       </button>
     </div>
 
-    <p>
-      All rights reserved greatbritishchefs.com Terms and Conditions and
-      <router-link
-        @click.prevent="router.push({ path: '/restresource.ru/privacypolicy' })"
-        to="#"
-        v-text="
-          `Privacy
-      Policy`
-        "
-      />
-    </p>
+    <span>
+      Все права защищены
+      <a href="https://www.restresource.ru/" target="_blank"
+        >www.restresource.ru</a
+      >
+
+      <p>
+        <router-link
+          to="/restresource.ru/policyagreement"
+          v-text="`Соглашение о конфиденциальности`"
+        />
+        и
+        <router-link
+          to="/restresource.ru/privacypolicy"
+          v-text="`Пользовательское соглашение`"
+        />
+      </p>
+    </span>
   </form>
 </template>
 
@@ -262,6 +269,13 @@ form {
         background: var(--scheme-v3);
         cursor: default;
       }
+    }
+  }
+
+  span {
+    font-weight: 400;
+    a {
+      color: var(--scheme-v5);
     }
   }
 }
